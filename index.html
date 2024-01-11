@@ -20,10 +20,16 @@
           <div class="menu-items">
             <ul>
               <li><a href="index.html"> Home </a></li>
-              <li><a href="about.html"> About </a></li>
-              <li><a href="services.html"> Services </a></li>
-              <li><a href="contact.html"> Contact </a></li>
+              <li><a href="#"> About </a></li>
+              <li><a href="#"> Services </a></li>
+              <li><a href="#"> Contact </a></li>
             </ul>
+          </div>
+          <!-- mobile menu -->
+          <div class="burger-menu" onclick="toggleMenu()">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
           </div>
         </nav>
       </header>
@@ -108,7 +114,11 @@
           <div class="products">
             <div class="product-card">
               <div class="product-image">
-                <img src="/images/pads.jpg" loading="lazy" alt="Sanitary pads" />
+                <img
+                  src="/images/pads.jpg"
+                  loading="lazy"
+                  alt="Sanitary pads"
+                />
               </div>
               <div class="product-info">
                 <h2 class="product-title">Sanitary pads</h2>
@@ -117,12 +127,9 @@
                   health. we are very concerned by female health and we are
                   trying to make it better for them. affordability won't be an
                   issue for our product.
-                  <br>
-                  <br>
-                  all sizes are available.
-                  quality is our priority.
-                  
-
+                  <br />
+                  <br />
+                  all sizes are available. quality is our priority.
                 </p>
                 <br />
               </div>
@@ -195,11 +202,12 @@
                 />
               </div>
               <div class="product-info">
-                <h2 class="product-title"> Food Packaging</h2>
+                <h2 class="product-title">Food Packaging</h2>
                 <p class="product-description">
-                  We have various categories of food packaging products.
-                  very harmless to environment and health. they are 100% safe and biodegradable.
-                  it is time now to save our environment and health while taking our full diet and nutrition.
+                  We have various categories of food packaging products. very
+                  harmless to environment and health. they are 100% safe and
+                  biodegradable. it is time now to save our environment and
+                  health while taking our full diet and nutrition.
                 </p>
                 <br />
               </div>
@@ -228,7 +236,18 @@
       </main>
       <footer>
         Copyright &copy; Nishkaam Innovations LLP | All rights reserved
+        <br />
+        <p style="text-align: center; color: red;  font-weight: lighter; font-size: 20px">
+          This website is currently under development. Some features may not be
+          available. Thank you for your understanding.
+        </p>
       </footer>
     </div>
+    <script>
+      function toggleMenu() {
+        var menuItems = document.getElementById("menuItems");
+        menuItems.classList.toggle("show");
+      }
+    </script>
   </body>
 </html>

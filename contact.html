@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://kit.fontawesome.com/56c42c8616.js" crossorigin="anonymous"></script>
+    <title>Contact Us - Sanitary Pads Company</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <nav class="navbar">
+          <div class="logo-and-tagline">
+            <img src="images/logo2.png" alt="logo image " />
+          </div>
+          <div class="menu-items">
+            <ul>
+              <li><a href="index.html"> Home </a></li>
+              <li><a href="#"> About </a></li>
+              <li><a href="#"> Services </a></li>
+              <li><a href="#"> Contact </a></li>
+            </ul>
+          </div>
+          <!-- mobile menu -->
+          <div class="burger-menu" onclick="toggleMenu()">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+          </div>
+        </nav>
+      </header>
+   <main class="contact-info-form">
+      <div class="company-details">
+        <h3>Niskaam Innovations LLP</h3>
+        <p>
+          <span class="icon"><i class="fa-solid fa-envelope"></i></span> nishkaaminnovations@gmail.com
+        </p>
+        <p>
+          <span class="icon"><i class="fa-solid fa-phone"></i>
+          </span> +91-9173801621
+        </p>
+      </div>
+
+      <section class="section" id="contact-form">
+        <form id="contactForm" onsubmit="submitForm(event)">
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name" required />
+
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required />
+
+          <label for="message">Message:</label>
+          <textarea id="message" name="message" rows="4" required></textarea>
+
+          <button type="submit">Submit</button>
+        </form>
+      </section>
+    </main>
+    <footer>
+      Copyright &copy; Nishkaam Innovations LLP | All rights reserved
+      <br />
+      <p style="text-align: center; color: red;  font-weight: lighter; font-size: 20px">
+        This website is currently under development. Some features may not be
+        available. Thank you for your understanding.
+      </p>
+    </footer>
+  </div>
+  <script>
+    function toggleMenu() {
+      var menuItems = document.getElementById("menuItems");
+      menuItems.classList.toggle("show");
+    }
+  </script>
+
+     
+    </div>
+  </body>
+</html>

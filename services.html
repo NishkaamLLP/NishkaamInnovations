@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Nishkam Innovations Services</title>
+  </head>
+  <body>
+    <div class="container">
+    <header>
+        <nav class="navbar">
+            <div class="logo-and-tagline">
+              <img src="images/logo2.png" alt="logo image " />
+            </div>
+            <div class="menu-items">
+              <ul>
+                <li><a href="index.html"> Home </a></li>
+                <li><a href="#"> About </a></li>
+                <li><a href="#"> Services </a></li>
+                <li><a href="#"> Contact </a></li>
+              </ul>
+            </div>
+            <!-- mobile menu -->
+            <div class="burger-menu" onclick="toggleMenu()">
+              <div class="bar"></div>
+              <div class="bar"></div>
+              <div class="bar"></div>
+            </div>
+          </nav>
+      
+    </header>
+
+    <section class="service">
+      <h2>Food Packaging Products</h2>
+      <p>
+        we provide eco-friendly food packaging products which are crafted from
+        recycled agricultural waste, providing sustainable alternatives for the
+        food industry.
+      </p>
+      <button onclick="toggleDetails('foodPackagingDetails')">
+        Learn More
+      </button>
+      <div id="foodPackagingDetails" class="details">
+        <p>we have a wide range oftableppp</p>
+      </div>
+    </section>
+
+    <section class="service">
+      <h2>Tableware</h2>
+      <p>
+        We provide range of biodegradable tableware, designed to replace
+        conventional disposable options with sustainable alternatives made from
+        repurposed agricultural electronic waste.
+      </p>
+      <button onclick="toggleDetails('tablewareDetails')">Learn More</button>
+      <div id="tablewareDetails" class="details">
+        <p>
+          Details about our biodegradable tableware products...
+          <img
+            src="content://com.android.externalstorage.documents/tree/primary%3AAndroid%2FMuir/document/primary%3AAndroid%2FMuir%2Ftissues.jpg"
+            width="330"
+            alt="Product Image"
+          />
+        </p>
+      </div>
+    </section>
+    <footer>
+      Copyright &copy; Nishkaam Innovations LLP | All rights reserved
+      <br />
+      <p
+        style="
+          text-align: center;
+          color: red;
+          font-weight: lighter;
+          font-size: 20px;
+        "
+      >
+        This website is currently under development. Some features may not be
+        available. Thank you for your understanding.
+      </p>
+    </footer>
+
+    
+    </div>
+  </body>
+</html>

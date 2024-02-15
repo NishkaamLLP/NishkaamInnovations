@@ -23,7 +23,6 @@
   
       .header {
         width:auto;
-        background-image: url("footer.png");
         background-color: #ffffff;
         text-align: center;
         flex-wrap: wrap;
@@ -45,8 +44,6 @@
         display: inline-block;
         margin-right: 20px;
       }
-      
-  
       .search-container {
         text-align: center;
     }
@@ -95,14 +92,14 @@
     font-size: 1em;
   }
   .nav-option:hover {
-    background-color: green;
-    color: white; 
+    color: gold; 
   }
   .nav-option.active {
     /* Add your styles for the active link, for example: */
     font-weight: bold;
     color: rgb(52, 172, 41); /* Change to your preferred color */
 }
+
   #showcase{
   background-position: center;
   background-size: cover;
@@ -188,7 +185,7 @@ button:hover {
             display: flex;
 }
 footer {
-  background-image: url("footer.png");
+  background-image: url("images/footer.png");
   background-size: cover;
   color: #fff;
   padding: 2rem 0;
@@ -242,7 +239,7 @@ footer {
     <div class="header">
         <div class="brand-container">
           <div class="logo">
-            <a href=index.html><img src="logo.png" alt="Logo" width="250" height="150"></a>
+            <a href=index.html><img src="images/logo.png" alt="Logo" width="250" height="150"></a>
           </div>
           <div class="search-container">
             <input type="text" class="search-box" placeholder="Search...">
@@ -259,14 +256,16 @@ footer {
           </div>
        
       </div>
-      <div class="navigation">
-        <a href="index.html" class="nav-option ">Home</a>
-        <a href="about_us.html" class="nav-option">About Us</a>
-        <a href="achievements.html" class="nav-option">Achievements</a>
-        <a href="blogs.html" class="nav-option">Blogs</a>
-        <a href="products.html" class="nav-option">Product</a>
-        <a href="contact_us.html" class="nav-option active">Contact Us</a>
-      </div>
+     <div class="navigation">
+    <a href="index.html" class="nav-option ">Home</a>
+    <a href="about_us.html" class="nav-option ">About Us</a>
+    <a href="achievements.html" class="nav-option">Achievements</a>
+    <a href="period_calculator.html" class="nav-option">Period Calculator</a>
+    <a href="blogs.html" class="nav-option">Blogs</a>
+    <a href="products.html" class="nav-option">Product</a>
+    <a href="contact_us.html" class="nav-option active">Contact Us</a>
+
+  </div>
     <hr>
     <section id="showcase">
         <div class="content">
@@ -295,51 +294,52 @@ footer {
     </div>
 
     <footer>
-        <!-- Nishkaam Section -->
-     <div style="flex: 1 1 0; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 16px; display: inline-flex">
-        <div style=" color: #658C4A; font-size: 20px; font-family: Inter; font-weight: 600; line-height: 28px; word-wrap: break-word">Nishkaam</div>
-        <div style=" height: 88px; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 8px; display: flex">
-          <div style="color: #333333; font-size: 16px; font-family: Inter; font-weight: 600; line-height: 24px; word-wrap: break-word">Marwadi University Campus</div>
-          <div style="color: #333333; font-size: 16px; font-family: Inter; font-weight: 600; line-height: 24px; word-wrap: break-word">Mobi Highway, Gujarat</div>
-          <div style="color: #333333; font-size: 16px; font-family: Inter; font-weight: 600; line-height: 24px; word-wrap: break-word">+91 91738 01621</div>
-        </div>
+      <!-- Nishkaam Section -->
+     <div style="flex: 1 1 0; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 16px; display: inline-flex; margin-left: 32px;">
+        <div style=" color: #658C4A; font-size: 20px; font-family: Inter; font-weight: 600; line-height: 28px; word-wrap: break-word; margin-bottom: 8px;">Nishkaam</div>
+      <div style=" height: 88px; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 8px; display: flex">
+        <div style="color: #333333; font-size: 16px; font-family: Inter; font-weight: 600; line-height: 24px; word-wrap: break-word">Marwadi University Campus</div>
+        <div style="color: #333333; font-size: 16px; font-family: Inter; font-weight: 600; line-height: 24px; word-wrap: break-word">Rajkot-Morbi Highway ,Gujarat</div>
+        <div style="color: #333333; font-size: 16px; font-family: Inter; font-weight: 600; line-height: 24px; word-wrap: break-word">+91 91738 01621</div>
+      </div>
+  </div>
+  
+    <!-- Product Categories Section -->
+  <div style="flex: 1 1 0; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 16px; display: inline-flex">
+    <div style="color: #658C4A; font-size: 20px; font-family: Inter; font-weight: 600; line-height: 28px; word-wrap: break-word">Product Categories</div>
+    <div style="height: 216px; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 8px; display: flex">
+      <div style="font-size: 16px; font-family: Inter; font-weight: 600; line-height: 24px; word-wrap: break-word;"><a href="pads.html" style="text-decoration: none; color: black;">Pads</a></div>
+      <div style="font-size: 16px; font-family: Inter; font-weight: 600; line-height: 24px; word-wrap: break-word;"><a href="tissues.html" style="text-decoration: none; color: black;">Tissues</a></div>
+      <div style="font-size: 16px; font-family: Inter; font-weight: 600; line-height: 24px; word-wrap: break-word;"><a href="bags.html" style="text-decoration: none; color: black;">Bags</a></div>
+      <div style="font-size: 16px; font-family: Inter; font-weight: 600; line-height: 24px; word-wrap: break-word;"><a href="home-goods.html" style="text-decoration: none; color: black;">Home Goods</a></div>
+      <div style="font-size: 16px; font-family: Inter; font-weight: 600; line-height: 24px; word-wrap: break-word;"><a href="furniture.html" style="text-decoration: none; color: black;">Furniture</a></div>
+      <div style="font-size: 16px; font-family: Inter; font-weight: 600; line-height: 24px; word-wrap: break-word;"><a href="accessories.html" style="text-decoration: none; color: black;">Accessories</a></div>
+      <div style="font-size: 16px; font-family: Inter; font-weight: 600; line-height: 24px; word-wrap: break-word;"><a href="gift.html" style="text-decoration: none; color: black;">Gift</a></div>
     </div>
-    
-      <!-- Product Categories Section -->
-      <div style="flex: 1 1 0; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 16px; display: inline-flex">
-        <div style=" color: #658C4A; font-size: 20px; font-family: Inter; font-weight: 600; line-height: 28px; word-wrap: break-word">Product Categories</div>
-        <div style=" height: 216px; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 8px; display: flex">
-          <div style="color: #333333; font-size: 16px; font-family: Inter; font-weight: 600; line-height: 24px; word-wrap: break-word">Pads</div>
-          <div style="color: #333333; font-size: 16px; font-family: Inter; font-weight: 600; line-height: 24px; word-wrap: break-word">Tissues</div>
-          <div style="color: #333333; font-size: 16px; font-family: Inter; font-weight: 600; line-height: 24px; word-wrap: break-word">Bags</div>
-          <div style="color: #333333; font-size: 16px; font-family: Inter; font-weight: 600; line-height: 24px; word-wrap: break-word">Home Goods</div>
-          <div style="color: #333333; font-size: 16px; font-family: Inter; font-weight: 600; line-height: 24px; word-wrap: break-word">Furniture</div>
-          <div style="color: #333333; font-size: 16px; font-family: Inter; font-weight: 600; line-height: 24px; word-wrap: break-word">Accessories</div>
-          <div style="color: #333333; font-size: 16px; font-family: Inter; font-weight: 600; line-height: 24px; word-wrap: break-word">Gift</div>
-        </div>
-      </div>
-    
-      <!-- Support Section -->
-      <div style="flex: 1 1 0; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 16px; display: inline-flex">
-        <div style=" color: #658C4A; font-size: 20px; font-family: Inter; font-weight: 600; line-height: 28px; word-wrap: break-word">Support</div>
-        <div style=" height: 152px; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 8px; display: flex">
-          <div style="color: #333333; font-size: 16px; font-family: Inter; font-weight: 600; line-height: 24px; word-wrap: break-word">Shipping</div>
-          <div style="color: #333333; font-size: 16px; font-family: Inter; font-weight: 600; line-height: 24px; word-wrap: break-word">Returns</div>
-          <div style="color: #333333; font-size: 16px; font-family: Inter; font-weight: 600; line-height: 24px; word-wrap: break-word">Privacy Policy</div>
-          <div style="color: #333333; font-size: 16px; font-family: Inter; font-weight: 600; line-height: 24px; word-wrap: break-word">Terms of Use</div>
-          <div style="color: #333333; font-size: 16px; font-family: Inter; font-weight: 600; line-height: 24px; word-wrap: break-word">Affiliates</div>
-        </div>
-      </div>
-    
-      <!-- Location Section -->
-      <div style="width: 341px; height: 260px; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 16px; display: inline-flex">
-        <div style=" color: #658C4A; font-size: 20px; font-family: Inter; font-weight: 600; line-height: 28px; word-wrap: break-word">Location</div>
-        <div style=" height: 215px; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 8px; display: flex">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3689.637273789306!2d70.79224057509602!3d22.367320979638393!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3959c972761ce515%3A0x3651e3fe1e9df4f8!2sMarwadi%20University!5e0!3m2!1sen!2sin!4v1706769068035!5m2!1sen!2sin" width="314" height="215px" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-        </div>
+  </div>
+  <!-- Support Section -->
+  <div style="flex: 1 1 0; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 16px; display: inline-flex">
+    <div style="color: #658C4A; font-size: 20px; font-family: Inter; font-weight: 600; line-height: 28px; word-wrap: break-word">Support</div>
+    <div style="height: 152px; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 8px; display: flex">
+      <div style="font-size: 16px; font-family: Inter; font-weight: 600; line-height: 24px; word-wrap: break-word;"><a href="shipping.html" style="text-decoration: none; color: black;">Shipping</a></div>
+      <div style="font-size: 16px; font-family: Inter; font-weight: 600; line-height: 24px; word-wrap: break-word;"><a href="returns.html" style="text-decoration: none; color: black;">Returns</a></div>
+      <div style="font-size: 16px; font-family: Inter; font-weight: 600; line-height: 24px; word-wrap: break-word;"><a href="privacy-policy.html" style="text-decoration: none; color: black;">Privacy Policy</a></div>
+      <div style="font-size: 16px; font-family: Inter; font-weight: 600; line-height: 24px; word-wrap: break-word;"><a href="terms-of-use.html" style="text-decoration: none; color: black;">Terms of Use</a></div>
+      <div style="font-size: 16px; font-family: Inter; font-weight: 600; line-height: 24px; word-wrap: break-word;"><a href="affiliates.html" style="text-decoration: none; color: black;">Affiliates</a></div>
+    </div>
+  </div>
+  
+  
+    <!-- Location Section -->
+    <div style="width: 341px; height: 260px; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 16px; display: inline-flex">
+      <div style=" color: #658C4A; font-size: 20px; font-family: Inter; font-weight: 600; line-height: 28px; word-wrap: break-word">Location</div>
+      <div style=" height: 215px; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 8px; display: flex">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3689.637273789306!2d70.79224057509602!3d22.367320979638393!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3959c972761ce515%3A0x3651e3fe1e9df4f8!2sMarwadi%20University!5e0!3m2!1sen!2sin!4v1706769068035!5m2!1sen!2sin" width="314" height="215px" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
     </div>
-    </footer>
+  </div>
+  <hr>
+  </footer>
     <hr>
     <div class="copyright">
         <p style="align-self: flex-start;">© 2024 Nishkaam . All Rights Reserved.</p>

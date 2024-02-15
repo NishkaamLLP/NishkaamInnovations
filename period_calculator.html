@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Nishkaam Period Tracker</title>
+    <meta charset="utf-8" />
+    <link rel="shortcut icon" href="images/Favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <base href="/" />
+    <link rel="stylesheet" href="opensite/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="opensite/css/style.css" />
+    <link rel="stylesheet" href="opensite/css/responsive.css" />
+    <link
+        href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.1.4/dist/css/datepicker.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/line-awesome/1.3.0/line-awesome/css/line-awesome.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <link href="zoom/xzoom.css" rel="stylesheet" />
+
+    <link href="Styles/AutoComplete.css" rel="stylesheet" />
+    <link href="Styles/Validations.css" rel="stylesheet" />
+    <link href="Styles/alertify.bootstrap.css" rel="stylesheet" />
+    <link href="Styles/alertify.core.css" rel="stylesheet" />
+    <link href="Styles/alertify.default.css" rel="stylesheet" />
+    <script src="AlertMsg/alertify.js"></script>
+    <script src="AlertMsg/alertify.min.js"></script>
+
+    <style>
+      
+.form-floating>.bi-calendar-date+.datepicker_input+label {
+  padding-left: 3.5rem;
+  z-index: 3;
+}
+
+#datepicker {
+  display: none;
+}
+
+.calendar {
+  margin-top: 20px;
+}
+
+.calendar-month {
+  margin-bottom: 10px;
+}
+
+.calendar-month h3 {
+  margin: 0;
+  padding: 10px 0;
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.calendar-days {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.day {
+  width: 14.28%;
+  padding: 5px;
+  text-align: center;
+}
+
+.pink {
+  background-color: #fd8080;
+  border-radius: 100%;
+  width: 35px;
+  height: 35px;
+  margin: 5px 3px;
+}
+
+.calendar-month {
+  width: 30%;
+  display: inline-block;
+  padding: 20px;
+  background: #fff;
+  margin: 0 15px;
+  margin-bottom: 26px;
+  box-shadow: 0 0 11px #3b3939;
+  border-radius: 10px;
+  height: 290px;
+}
+
+.qty .minus,
+.qty .plus {
+  line-height: 0;
+  font-size: 33px;
+  padding: 0;
+}
+
+.qty .count {
+  width: 80px
+}
+
+.fertile {
+  background-color: #48e139;
+  color: #fff;
+  border-radius: 100%;
+  width: 35px;
+  height: 35px;
+  margin: 5px 3px;
+}
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 2vw;
+    padding: 0;
+    text-align: center;
+  }
+
+  .header {
+    width:auto;
+    background-color: #ffffff;
+    text-align: center;
+    flex-wrap: wrap;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1em;
+    margin-top: -50px;
+  }
+
+  .brand-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1em;
+  }
+
+  .logo {
+    display: inline-block;
+    margin-right: 20px;
+  }
+  
+
+  .search-container {
+    text-align: center;
+}
+
+.search-box {
+  width: 600px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+  font-size: 16px;
+  display: inline-block; 
+  margin-right: 10px; 
+}
+
+.search-button {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+.icon {
+  padding: 30px;
+  margin: right 0px;;   
+}
+.icon i {
+  font-size: 30px 
+}
+.icon a{
+  text-decoration: none;
+  color:inherit;
+}
+.icon a:first-child {
+  margin-right: 10px; 
+}
+.nav-option {
+  display: inline-block;
+  text-decoration: none;
+  color: #333;
+  font-size: large;
+  font-weight: bold;
+  margin-right: 1em; /* Adjust spacing between navigation links */
+  font-size: 1em;
+}
+.nav-option:hover {
+  color: gold; 
+  text-decoration: none;
+}
+.nav-option.active{
+  /* Add your styles for the active link, for example: */
+  font-weight: bold;
+  color: green; /* Change to your preferred color */
+}
+
+footer {
+  background-image: url("images/footer.png");
+  background-size: cover;
+  color: #fff;
+  padding: 2rem 0;
+  margin-top: auto;
+  display: flex;
+  align-self: flex-start;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.footer-component {
+  flex: 1; /* Each component will take equal width */
+  box-sizing: border-box;
+  padding: 0 20px; /* Adjust padding as needed */
+}
+
+/* Add media query for responsiveness */
+@media (max-width: 768px) {
+  .footer-component {
+    flex: 1 0 100%; /* Components will stack on top of each other on small screens */
+  }
+}
+    </style>
+  
+    <script src="https://kit.fontawesome.com/3b4d628af1.js" crossorigin="anonymous"></script>
+
+    </head>
+
+<body>
+
+  <div class="header">
+    <div class="brand-container">
+      <div class="logo">
+        <a href=index.html><img src="images/logo.png" alt="Logo" width="250" height="150"></a>
+      </div>
+      <div class="search-container">
+        <input type="text" class="search-box" placeholder="Search...">
+        <button class="search-button">Search</button>
+      </div>
+    </div>
+    <div class="icon">
+      <a href="user.html">
+       <i class="fa-regular fa-user" ></i>
+      </a> 
+       <a href="cart.html">
+         <i class="fa-solid fa-bag-shopping"></i>
+       </a> 
+      </div>
+   
+  </div>
+  <div class="navigation">
+    <a href="index.html" class="nav-option ">Home</a>
+    <a href="about_us.html" class="nav-option ">About Us</a>
+    <a href="achievements.html" class="nav-option">Achievements</a>
+    <a href="period_calculator.html" class="nav-option active">Period Calculator</a>
+    <a href="blogs.html" class="nav-option">Blogs</a>
+    <a href="products.html" class="nav-option">Product</a>
+    <a href="contact_us.html" class="nav-option">Contact Us</a>
+
+  </div>
+  <hr>
+  <h1>Track Your Period</h1>
+  <p style="justify-content: space-between;">Periods normally arrive once a month (every 28-30 days). But for many women it isn’t an exact science. Predicting the precise date and length of your next period is sometimes tricky. That's where our period due date calculator comes in.</p>
+<hr>
+<div style="background-image:url('images/footer.png'); padding: 2rem">
+    <div ng-view="" id="dataview" class="ng-scope">
+      <section class="breadcrumbs ng-scope"></section>
+
+      <section
+        class="trackingperiod ng-scope"
+        ng-controller="PeriodCalculatorCtrl"
+      >
+        <div class="container trackerbox">
+          <!--============================================================================================================ -->
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="period-calculator-contents">
+                <h2 class="webtracker">Period Tracker</h2>
+                <p class="trackingp">
+                  Track your period with our free service .
+                </p>
+              </div>
+              <div class="row">
+                <div class="col-xl-4 col-md-6 col-lg-4 mb-4">
+                  <div class="period-calculatordata">
+                    <h3>(1)</h3>
+                    <h4>When did your last Period Start?</h4>
+
+                    <div class="perioddates">
+                      <div class="row pdates">
+                        <div class="col-lg-3 col-4">
+                          <!-- Modified input field to capture selected date -->
+                          <input
+                            style="cursor: pointer"
+                            type="date"
+                            id="selectedDate"
+                            class="form-control calendarimgs"
+                            placeholder="Select date"
+                          />
+                        </div>
+
+                        <div class="col-lg-2 col-3">
+                          <!-- Display selected day -->
+                          <h4
+                            class="perioddate ng-binding"
+                            id="selectedDay"
+                          ></h4>
+                        </div>
+                        <div class="col-lg-7 col-5">
+                          <!-- Display selected month -->
+                          <h4
+                            class="periodday ng-binding"
+                            id="selectedMonth"
+                          ></h4>
+                          <h5
+                            class="periodmaonth ng-binding"
+                            id="selectedYear"
+                          ></h5>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-xl-4 col-md-6 col-lg-4 mb-4">
+                  <div class="period-calculatordata">
+                    <h3>( 2 )</h3>
+                    <h4>How many days did your last Period Last ?</h4>
+                    <div class="perioddates">
+                      <div class="row pdates">
+                        <div class="qty">
+                          <input
+                            type="button"
+                            value="-"
+                            class="minus bg-dark decrease"
+                            name="decrease2"
+                            namfdprocessedid="3p9whs"
+                          />
+
+                          <input
+                            style="border: none"
+                            type="text"
+                            class="count ng-pristine ng-untouched ng-valid"
+                            name="qty"
+                            step="1"
+                            value="1"
+                            ng-model="PeriodDays"
+                            id="PeriodDays"
+                            fdprocessedid="9irtru"
+                          />
+                          <input
+                            type="button"
+                            value="+"
+                            class="plus bg-dark increase"
+                            name="increase2"
+                            fdprocessedid="x60chi"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-xl-4 col-md-12 col-lg-4 mb-4">
+                  <div class="period-calculatordata">
+                    <h3>( 3 )</h3>
+                    <h4>How long is your Cycle ?</h4>
+                    <div class="perioddates">
+                      <div class="row pdates">
+                        <div class="qty">
+                          <input
+                            type="button"
+                            value="-"
+                            class="minus bg-dark decrease"
+                            name="decrease3"
+                            fdprocessedid="456h9m"
+                          />
+
+                          <input
+                            style="border: none"
+                            type="text"
+                            class="count ng-pristine ng-untouched ng-valid"
+                            name="qty2"
+                            step="1"
+                            value="25"
+                            ng-model="PeriodCycle"
+                            id="PeriodCycle"
+                            fdprocessedid="ijvvn"
+                          />
+                          <input
+                            type="button"
+                            value="+"
+                            class="plus bg-dark increase"
+                            name="increase3"
+                            fdprocessedid="bamgbq"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- ======================================================================================================= -->
+          <div clas="row">
+            <div class="col-md-12 text-center">
+              <button
+                type="button"
+                class="btn btn-primary"
+                ng-click="calculateMenstrualCycle()"
+                fdprocessedid="l2two"
+                style="
+                  border-radius: 60px;
+                  background-color: #b18181;
+                  cursor: pointer;
+                "
+                onmouseover="this.style.backgroundColor =' #e1a0a0'"
+                onmouseout="this.style.backgroundColor='#b18181'"
+              >
+                See results
+              </button>
+            </div>
+          </div>
+          <br /><br />
+          <main  id="all-cards">
+          <!--=============================================================================================== -->
+          
+      </main>
+          <!-- ============================================================================================ -->
+          <div class="row">
+            <div class="col-lg-6 mx-auto">
+              <div class="row text-center">
+                <div class="col-lg-6">
+                  <p class="pinkcolor">
+                    <i class="las la-circle"></i> Menstruation Period
+                  </p>
+                </div>
+                <div class="col-lg-6">
+                  <p class="green">
+                    <i class="las la-circle"></i> Ovulation Period
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-12">
+              <div class="notes">
+                <p>
+                  Please note that this is only an estimation of your
+                  menstrual cycle
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!--======================================================================================================= -->
+    </div>
+  </div>
+  <hr>
+  <footer>
+    <!-- Nishkaam Section -->
+   <div style="flex: 1 1 0; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 16px; display: inline-flex; margin-left: 32px;">
+      <div style=" color: #658C4A; font-size: 20px; font-family: Inter; font-weight: 600; line-height: 28px; word-wrap: break-word; margin-bottom: 8px;">Nishkaam</div>
+    <div style=" height: 88px; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 8px; display: flex">
+      <div style="color: #333333; font-size: 16px; font-family: Inter; font-weight: 600; line-height: 24px; word-wrap: break-word">Marwadi University Campus</div>
+      <div style="color: #333333; font-size: 16px; font-family: Inter; font-weight: 600; line-height: 24px; word-wrap: break-word">Rajkot-Morbi Highway ,Gujarat</div>
+      <div style="color: #333333; font-size: 16px; font-family: Inter; font-weight: 600; line-height: 24px; word-wrap: break-word">+91 91738 01621</div>
+    </div>
+</div>
+
+  <!-- Product Categories Section -->
+<div style="flex: 1 1 0; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 16px; display: inline-flex">
+  <div style="color: #658C4A; font-size: 20px; font-family: Inter; font-weight: 600; line-height: 28px; word-wrap: break-word">Product Categories</div>
+  <div style="height: 216px; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 8px; display: flex">
+    <div style="font-size: 16px; font-family: Inter; font-weight: 600; line-height: 24px; word-wrap: break-word;"><a href="pads.html" style="text-decoration: none; color: black;">Pads</a></div>
+    <div style="font-size: 16px; font-family: Inter; font-weight: 600; line-height: 24px; word-wrap: break-word;"><a href="tissues.html" style="text-decoration: none; color: black;">Tissues</a></div>
+    <div style="font-size: 16px; font-family: Inter; font-weight: 600; line-height: 24px; word-wrap: break-word;"><a href="bags.html" style="text-decoration: none; color: black;">Bags</a></div>
+    <div style="font-size: 16px; font-family: Inter; font-weight: 600; line-height: 24px; word-wrap: break-word;"><a href="home-goods.html" style="text-decoration: none; color: black;">Home Goods</a></div>
+    <div style="font-size: 16px; font-family: Inter; font-weight: 600; line-height: 24px; word-wrap: break-word;"><a href="furniture.html" style="text-decoration: none; color: black;">Furniture</a></div>
+    <div style="font-size: 16px; font-family: Inter; font-weight: 600; line-height: 24px; word-wrap: break-word;"><a href="accessories.html" style="text-decoration: none; color: black;">Accessories</a></div>
+    <div style="font-size: 16px; font-family: Inter; font-weight: 600; line-height: 24px; word-wrap: break-word;"><a href="gift.html" style="text-decoration: none; color: black;">Gift</a></div>
+  </div>
+</div>
+<!-- Support Section -->
+<div style="flex: 1 1 0; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 16px; display: inline-flex">
+  <div style="color: #658C4A; font-size: 20px; font-family: Inter; font-weight: 600; line-height: 28px; word-wrap: break-word">Support</div>
+  <div style="height: 152px; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 8px; display: flex">
+    <div style="font-size: 16px; font-family: Inter; font-weight: 600; line-height: 24px; word-wrap: break-word;"><a href="shipping.html" style="text-decoration: none; color: black;">Shipping</a></div>
+    <div style="font-size: 16px; font-family: Inter; font-weight: 600; line-height: 24px; word-wrap: break-word;"><a href="returns.html" style="text-decoration: none; color: black;">Returns</a></div>
+    <div style="font-size: 16px; font-family: Inter; font-weight: 600; line-height: 24px; word-wrap: break-word;"><a href="privacy-policy.html" style="text-decoration: none; color: black;">Privacy Policy</a></div>
+    <div style="font-size: 16px; font-family: Inter; font-weight: 600; line-height: 24px; word-wrap: break-word;"><a href="terms-of-use.html" style="text-decoration: none; color: black;">Terms of Use</a></div>
+    <div style="font-size: 16px; font-family: Inter; font-weight: 600; line-height: 24px; word-wrap: break-word;"><a href="affiliates.html" style="text-decoration: none; color: black;">Affiliates</a></div>
+  </div>
+</div>
+
+
+  <!-- Location Section -->
+  <div style="width: 341px; height: 260px; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 16px; display: inline-flex">
+    <div style=" color: #658C4A; font-size: 20px; font-family: Inter; font-weight: 600; line-height: 28px; word-wrap: break-word">Location</div>
+    <div style=" height: 215px; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 8px; display: flex">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3689.637273789306!2d70.79224057509602!3d22.367320979638393!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3959c972761ce515%3A0x3651e3fe1e9df4f8!2sMarwadi%20University!5e0!3m2!1sen!2sin!4v1706769068035!5m2!1sen!2sin" width="314" height="215px" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+  </div>
+</div>
+<hr>
+</footer>
+<hr>
+<div class="copyright">
+  <p style="align-self: flex-start;">© 2024 Nishkaam . All Rights Reserved.</p>
+</div>
+
+<script>
+   
+    function handleSearch() {
+      var searchTerm = document.querySelector('input[type="text"]').value;
+      alert('Searching for: ' + searchTerm);
+
+    }
+  
+    document.querySelector('button').addEventListener('click', handleSearch);
+
+       // Define months globally
+var months = [
+"January",
+"February",
+"March",
+"April",
+"May",
+"June",
+"July",
+"August",
+"September",
+"October",
+"November",
+"December",
+];
+
+document.addEventListener("DOMContentLoaded", function () {
+// Increase and decrease buttons for card (2)
+const decreaseButtons2 = document.getElementsByName("decrease2");
+const increaseButtons2 = document.getElementsByName("increase2");
+const countInput2 = document.querySelector("#PeriodDays");
+
+decreaseButtons2.forEach((button) => {
+  button.addEventListener("click", function () {
+    decreaseCount(countInput2);
+  });
+});
+
+increaseButtons2.forEach((button) => {
+  button.addEventListener("click", function () {
+    increaseCount(countInput2);
+  });
+});
+
+// Increase and decrease buttons for card (3)
+const decreaseButtons3 = document.getElementsByName("decrease3");
+const increaseButtons3 = document.getElementsByName("increase3");
+const countInput3 = document.querySelector("#PeriodCycle");
+
+decreaseButtons3.forEach((button) => {
+  button.addEventListener("click", function () {
+    decreaseCount(countInput3);
+  });
+});
+
+increaseButtons3.forEach((button) => {
+  button.addEventListener("click", function () {
+    increaseCount(countInput3);
+  });
+});
+
+function decreaseCount(inputElement) {
+  const currentValue = parseInt(inputElement.value);
+  if (currentValue > 1) {
+    inputElement.value = currentValue - 1;
+  }
+}
+
+function increaseCount(inputElement) {
+  const currentValue = parseInt(inputElement.value);
+  inputElement.value = currentValue + 1;
+}
+
+// Event listener for "See results" button
+const seeResultsButton = document.querySelector(".btn-primary");
+seeResultsButton.addEventListener("click", function () {
+  calculateAndDisplayResults();
+});
+});
+
+// JavaScript to update displayed date when user selects a date
+const selectedDateInput = document.getElementById("selectedDate");
+const selectedDayElement = document.getElementById("selectedDay");
+const selectedMonthElement = document.getElementById("selectedMonth");
+const selectedYearElement = document.getElementById("selectedYear");
+
+selectedDateInput.addEventListener("change", function () {
+const selectedDate = new Date(this.value);
+const options = {
+  weekday: "long",
+  year: "numeric",
+  month: "long",
+  day: "numeric",
+};
+
+// Update the displayed day, month, and year
+selectedDayElement.textContent = selectedDate.toLocaleDateString("en-US", {
+  day: "numeric",
+});
+selectedMonthElement.textContent = selectedDate.toLocaleDateString("en-US", {
+  month: "long",
+});
+selectedYearElement.textContent = selectedDate.toLocaleDateString("en-US", {
+  year: "numeric",
+});
+});
+
+function GetDaysOfMonth(year) {
+const isLeapYear = (year % 4 === 0 && year % 100 !== 0) || year % 400 === 0;
+
+const monthsDays = {
+  January: 31,
+  February: isLeapYear ? 29 : 28,
+  March: 31,
+  April: 30,
+  May: 31,
+  June: 30,
+  July: 31,
+  August: 31,
+  September: 30,
+  October: 31,
+  November: 30,
+  December: 31,
+};
+
+return monthsDays;
+}
+
+// Function to calculate menstrual cycle and display results
+function calculateAndDisplayResults() {
+// Get inputs
+const lastPeriodStartDay = parseInt(
+  document.getElementById("selectedDay").textContent
+);
+const lastPeriodDuration = parseInt(
+  document.getElementById("PeriodDays").value
+);
+const cycleLength = parseInt(document.getElementById("PeriodCycle").value);
+const selectedDate = new Date(document.getElementById("selectedDate").value);
+const year = selectedDate.getFullYear();
+const month = selectedDate.getMonth();
+
+// Generate calendar HTML
+const calendarHTML = generateCalendarDays(
+  lastPeriodStartDay,
+  lastPeriodDuration,
+  cycleLength,
+  year,
+  month
+);
+
+// Display results
+const allCardsElement = document.getElementById("all-cards");
+allCardsElement.innerHTML = calendarHTML;
+}
+
+function generateCalendarDays(
+lastPeriodStartDay,
+lastPeriodDuration,
+cycleLength,
+year,
+month
+) {
+// Initialize an array to store the generated HTML for each month
+var calendarHTML = [];
+
+// Determine if the current year is a leap year
+const isLeapYear = (year % 4 === 0 && year % 100 !== 0) || year % 400 === 0;
+
+// Loop through the current month and the next two months
+for (let i = 0; i < 12; i++) {
+  // Calculate the month and year for the current iteration
+  const currentMonth = (month + i) % 12;
+  const currentYear = year + Math.floor((month + i) / 12);
+
+  // Determine the number of days in the current month
+  const daysInMonth = GetDaysOfMonth(currentYear)[months[currentMonth]];
+
+  // Initialize arrays to store fertile, infertile, and bleeding days
+  const fertileDays = [];
+  const infertileDays = [];
+  const bleedingDays = [];
+
+  // Loop through each day of the current month
+  for (let day =lastPeriodStartDay; day <= daysInMonth; day++) {
+    // Determine if the day is fertile, infertile, or bleeding based on the cycle
+    const cycleStart = (lastPeriodStartDay + lastPeriodDuration) % cycleLength;
+    const dayInCycle = (cycleStart + day - 1) % cycleLength;
+
+    if (day <= lastPeriodDuration) {
+      bleedingDays.push(day);
+    } else if (dayInCycle < 7) {
+      fertileDays.push(day);
+    } else if (dayInCycle >= 7 && dayInCycle < 21) {
+      infertileDays.push(day);
+    } else {
+      fertileDays.push(day);
+    }
+  }
+
+  // Generate HTML for the current month
+  const monthHTML = `<div class="calendar-month ng-scope">
+                              <h3 class="ng-binding">${
+                                months[currentMonth]
+                              } ${currentYear}</h3>
+                              <div class="calendar-days">
+                                  ${generateDayHTML(
+                                    daysInMonth,
+                                    fertileDays,
+                                    infertileDays,
+                                    bleedingDays
+                                  )}
+                              </div>
+                          </div>`;
+
+  // Add the HTML for the current month to the calendar array
+  calendarHTML.push(monthHTML);
+}
+
+// Return the generated HTML for all three months
+return calendarHTML.join("");
+}
+
+function generateDayHTML(
+daysInMonth,
+fertileDays,
+infertileDays,
+bleedingDays
+) {
+let dayHTML = "";
+for (let day = 1; day <= daysInMonth; day++) {
+  let className = "";
+  if (bleedingDays.includes(day)) {
+    className = "pink";
+  } else if (fertileDays.includes(day)) {
+    className = "fertile";
+  }
+  dayHTML += `<div class="day ng-binding ng-scope ${className}">${day}</div>`;
+}
+return dayHTML;
+}
+
+  </script>
+  
+</body>
+
+</html>

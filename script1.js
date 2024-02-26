@@ -1,4 +1,3 @@
-// prevent from refreshing the page
 function validateForm(event) {
   event.preventDefault();
 
@@ -18,12 +17,12 @@ function validateForm(event) {
     displayErrorMessage("Please enter a valid email address.");
     return false;
   }
-  // Validate username format and length (at least 3 characters) not starting with a number
 
-  var UnameRegex = /^[a-zA-Z][a-zA-Z0-9-_\.]{1,20}$/;
-  if (isEmpty(uname) || !UnameRegex.test(uname.value)) {
+  // Validate username format and length (at least 3 characters) not starting with a number
+  var unameRegex = /^[a-zA-Z][a-zA-Z0-9-_\.]{2,}$/;
+  if (isEmpty(uname) || !unameRegex.test(uname.value)) {
     displayErrorMessage(
-      "Your name is required and must be at least 3 characters long and not start with a number."
+      "Your name is required and must be at least 2 characters long and not start with a number."
     );
     return false;
   }
@@ -34,7 +33,6 @@ function validateForm(event) {
     displayErrorMessage(
       "Password must contain at least one number, one uppercase letter, one lowercase letter, and one special character, and be at least 8 characters long."
     );
-
     return false;
   }
 
@@ -43,14 +41,46 @@ function validateForm(event) {
     displayErrorMessage("Passwords do not match.");
     return false;
   }
+
+  // Prepare request data
+  var data = {
+    email: email.value,
+    username: uname.value,
+    password: password.value
+  };
+
+  // Make POST request
+  fetch("https://nishkaam.onrender.com/signup", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(data)
+  })
+  .then(response => {
+    if (!response.ok) {
+      throw new Error("Network response was not ok");
+    }
+    return response.json();
+  })
+  .then(responseData => {
+    displayErrorMessage("Registration successful");
+  })
+  .catch(error => {
+    displayErrorMessage("An error occurred during registration.");
+    console.error("Error during registration:", error);
+  });
+
+  return true;
 }
+
 function isEmpty(field) {
   return field.value.trim() === "";
 }
 
 function displayErrorMessage(message) {
   var errorMessage = document.getElementById("errordiv");
-  errorMessage.innerHTML = message;
+  errorMessage.textContent = message;
 }
 
 function clearErrorMessages() {

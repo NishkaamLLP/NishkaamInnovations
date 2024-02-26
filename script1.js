@@ -1,4 +1,4 @@
-async function validateForm(event) {
+function validateForm(event) {
   event.preventDefault();
 
   // Get form elements
@@ -69,10 +69,11 @@ async function validateForm(event) {
         displayErrorMessage("An error occurred during registration.");
       }
     }
+     // Send the request with the JSON data
+  xhr.send(jsonData);
   };
 
-  // Send the request with the JSON data
-  xhr.send(jsonData);
+ 
 }
 
 function isEmpty(field) {

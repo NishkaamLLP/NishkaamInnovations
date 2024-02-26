@@ -46,7 +46,7 @@ async function validateForm(event) {
   var data = {
     email: email.value,
     username: uname.value,
-    password: password.value
+    password: password.value,
   };
   const jsonData = JSON.stringify(data);
 
@@ -67,7 +67,6 @@ async function validateForm(event) {
       } else {
         // Error response
         displayErrorMessage("An error occurred during registration.");
-        console.error("Error during registration:", xhr.status);
       }
     }
   };

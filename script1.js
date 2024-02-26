@@ -1,4 +1,4 @@
-function validateForm(event) {
+async function validateForm(event) {
   event.preventDefault();
 
   // Get form elements
@@ -49,30 +49,29 @@ function validateForm(event) {
     password: password.value
   };
   const jsonData = JSON.stringify(data);
-  console.log(jsonData)
-  // Make POST request
-  fetch("https://nishkaam.onrender.com/signup", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: jsonData
-  })
-  .then(response => {
+
+  try {
+    // Make POST request
+    const response = await fetch("https://nishkaam.onrender.com/signup", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: jsonData
+    });
+
     if (!response.ok) {
       throw new Error("Network response was not ok");
     }
-    return response.json();
-  })
-  .then(responseData => {
-    displayErrorMessage("Registration successful");
-  })
-  .catch(error => {
-    displayErrorMessage("An error occurred during registration.");
-    console.error("Error during registration:", response.error);
-  });
 
-  return true;
+    const responseData = await response.json();
+    displayErrorMessage(responseData.message); 
+    return true;
+  } catch (error) {
+    displayErrorMessage("An error occurred during registration.");
+    console.error("Error during registration:", error);
+    return false;
+  }
 }
 
 function isEmpty(field) {

@@ -53,28 +53,24 @@ function validateForm(event) {
   // Create a new XMLHttpRequest object
   var xhr = new XMLHttpRequest();
 
-  // Configure the request
+  // Configure it: POST-request for the URL /signup
   xhr.open("POST", "https://nishkaam.onrender.com/signup", true);
   xhr.setRequestHeader("Content-Type", "application/json");
 
-  // Define a function to handle the response
+  // Setup the onload function
   xhr.onreadystatechange = function () {
     if (xhr.readyState === XMLHttpRequest.DONE) {
-      if (xhr.status === 200) {
-        // Success response
-        var responseData = JSON.parse(xhr.responseText);
-        displayErrorMessage(responseData.message);
-      } else {
-        // Error response
-        displayErrorMessage("An error occurred during registration.");
-      }
+      var responseData = JSON.parse(xhr.responseText);
+      displayErrorMessage(responseData.message);
     }
-     // Send the request with the JSON data
-  xhr.send(jsonData);
   };
 
- 
+  // Send the request
+  xhr.send(jsonData);
 }
+
+ 
+
 
 function isEmpty(field) {
   return field.value.trim() === "";

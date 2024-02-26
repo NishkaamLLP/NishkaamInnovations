@@ -48,14 +48,14 @@ function validateForm(event) {
     username: uname.value,
     password: password.value
   };
-
+  const jsonData = JSON.stringify(data);
   // Make POST request
   fetch("https://nishkaam.onrender.com/signup", {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
     },
-    body: data
+    body: jsonData
   })
   .then(response => {
     if (!response.ok) {

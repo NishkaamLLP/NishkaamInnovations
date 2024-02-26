@@ -61,16 +61,14 @@ function validateForm(event) {
   xhr.onreadystatechange = function () {
     if (xhr.readyState === XMLHttpRequest.DONE) {
       var responseData = JSON.parse(xhr.responseText);
-      displayErrorMessage(responseData.message);
+      var messageToShow = responseData.message || responseData.error;
+      displayErrorMessage(messageToShow);
     }
   };
 
   // Send the request
   xhr.send(jsonData);
 }
-
- 
-
 
 function isEmpty(field) {
   return field.value.trim() === "";

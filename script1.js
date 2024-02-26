@@ -49,6 +49,7 @@ function validateForm(event) {
     password: password.value
   };
   const jsonData = JSON.stringify(data);
+  console.log(jsonData)
   // Make POST request
   fetch("https://nishkaam.onrender.com/signup", {
     method: "POST",
@@ -68,7 +69,7 @@ function validateForm(event) {
   })
   .catch(error => {
     displayErrorMessage("An error occurred during registration.");
-    console.error("Error during registration:", error);
+    console.error("Error during registration:", response.error);
   });
 
   return true;

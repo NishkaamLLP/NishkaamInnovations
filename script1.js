@@ -50,23 +50,30 @@ async function validateForm(event) {
   };
   const jsonData = JSON.stringify(data);
 
-  try {
-    // Make POST request
-    const response = await fetch("https://nishkaam.onrender.com/signup", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: jsonData
-    });
-    const responseData = await response.json();
-    displayErrorMessage(responseData.message); 
-    return true;
-  } catch (error) {
-    displayErrorMessage("An error occurred during registration.");
-    console.error("Error during registration:", error);
-    return false;
-  }
+  // Create a new XMLHttpRequest object
+  var xhr = new XMLHttpRequest();
+
+  // Configure the request
+  xhr.open("POST", "https://nishkaam.onrender.com/signup", true);
+  xhr.setRequestHeader("Content-Type", "application/json");
+
+  // Define a function to handle the response
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState === XMLHttpRequest.DONE) {
+      if (xhr.status === 200) {
+        // Success response
+        var responseData = JSON.parse(xhr.responseText);
+        displayErrorMessage(responseData.message);
+      } else {
+        // Error response
+        displayErrorMessage("An error occurred during registration.");
+        console.error("Error during registration:", xhr.status);
+      }
+    }
+  };
+
+  // Send the request with the JSON data
+  xhr.send(jsonData);
 }
 
 function isEmpty(field) {

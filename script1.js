@@ -59,11 +59,6 @@ async function validateForm(event) {
       },
       body: jsonData
     });
-
-    if (!response.ok) {
-      throw new Error("Network response was not ok");
-    }
-
     const responseData = await response.json();
     displayErrorMessage(responseData.message); 
     return true;

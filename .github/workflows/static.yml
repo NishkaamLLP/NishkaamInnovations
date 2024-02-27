@@ -36,9 +36,14 @@ jobs:
       - name: Install SVGO
         run: npm install -g svgo
 
+      # # Optimize SVG files using SVGO
+      # - name: Optimize SVG files
+      #   run: svgo -f . --quiet
+      
       # Optimize SVG files using SVGO
       - name: Optimize SVG files
-        run: svgo -f . --quiet
+        run: npx svgo -f path/to/svg/directory --quiet
+
 
       # Install ImageOptim
       - name: Install ImageOptim

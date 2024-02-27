@@ -61,8 +61,13 @@ function validateForm(event) {
   xhr.onreadystatechange = function () {
     if (xhr.readyState === XMLHttpRequest.DONE) {
       var responseData = JSON.parse(xhr.responseText);
-      var messageToShow = responseData.message || responseData.error;
-      displayErrorMessage(messageToShow);
+      var errorMessage=  responseData.error;
+      // if the request was successful, display a success message
+      if (!errorMessage) {
+       // redirect to signup-success.html
+        window.location.href = "signup-success.html";
+      }
+      displayErrorMessage(errorMessage);
     }
   };
 

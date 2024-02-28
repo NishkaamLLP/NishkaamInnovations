@@ -2,7 +2,7 @@ function validateForm(event) {
     event.preventDefault();
   
     // Get form elements
-    var email = document.getElementById("email");    
+    var email = document.getElementsByName("email");    
     var password = document.getElementById("psw");
     
   

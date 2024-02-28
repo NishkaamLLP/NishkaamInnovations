@@ -6,7 +6,7 @@
     <title>Login-page</title>
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="" />
+  <script src="/js/login.js"></script>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
@@ -140,7 +140,7 @@
   <body>
     <main style="width: 100%; display: flex; justify-content: center">
       <div class="form-section">
-        <form>
+        <form  method="post" autocomplete="off" onsubmit="validateForm(event)">
           <h1
             style="
               text-align: left;
@@ -152,13 +152,15 @@
           >
             Nishkaam Innovations.
           </h1>
-
+          <div id="errordiv" class="errormessage">
+          
+          </div>
           <div class="container">
             <label for="uname"><b>Email</b></label>
             <input
               type="email"
               placeholder="Enter your email "
-              name="uname"
+              name="email"
               title="you should enter a valid email address that you used when signing up"
               required
             />

@@ -1,0 +1,83 @@
+/* Define custom properties */
+:root {
+    --brand-success: #0ff50b;
+    --loader-size: 100px;
+    --check-height: 40px;
+    --check-width: 10px;
+    --check-thickness: 3px;
+    --check-color: var(--brand-success);
+  }
+  
+  /* Styles for checkmark loader */
+  .checkmark-loader {
+    animation: 600ms ease forwards loader-spin, 500ms linear 500ms forwards border-fill;
+    border: var(--check-thickness) solid rgba(0, 0, 0, 0.2);
+    border-left-color: var(--check-color);
+    border-radius: 50%;
+    display: inline-block;
+    height: var(--loader-size);
+    position: relative;
+    width: var(--loader-size);
+  }
+  
+  /* Styles for checkmark */
+  .checkmark {
+    animation: 800ms ease 1s forwards checkmark;
+    border-right: var(--check-thickness) solid var(--check-color);
+    border-top: var(--check-thickness) solid var(--check-color);
+    height: var(--check-height);
+    left: 2%; 
+    opacity: 0;
+    position: relative;
+    top: 80%; 
+    transform: translate(-50%, -50%) scaleX(-1) rotate(135deg); 
+    transform-origin: left top;
+    width: var(--check-width);
+  }
+  
+  /* Keyframes for loader spin */
+  @keyframes loader-spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+  /* Keyframes for border fill */
+  @keyframes border-fill {
+    0% {
+      border-color: transparent;
+    }
+    90% {
+      border-color: rgba(var(--check-color), 0.1);
+    }
+    100% {
+      border-color: var(--check-color);
+    }
+  }
+  
+  @keyframes checkmark {
+    0% {
+      height: 0;
+      width: 0;
+      opacity: 0;
+    }
+    20% {
+      height: 0;
+      width: var(--check-width);
+      opacity: 1;
+    }
+    40% {
+      height:var(--check-height);
+      width: var(--check-width);
+      opacity: 1;
+      
+    }
+    100% {
+      height: var(--check-height);
+      width: var(--check-width);
+      opacity: 1;
+    }
+  }

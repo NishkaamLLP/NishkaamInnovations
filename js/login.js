@@ -3,7 +3,7 @@ function validateForm(event) {
 
   // Get form elements
   var email = document.getElementsByName("email");
-  var password = document.getElementById("psw");
+  var password = document.getElementsByName("psw");
 
   // Clear existing error messages
   clearErrorMessages();

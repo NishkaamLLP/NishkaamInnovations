@@ -1,44 +1,45 @@
 <!DOCTYPE html>
 <html lang>
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>products</title>
-  <style>
-    .carousel {
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>products</title>
+    <link rel="stylesheet" href="header.css" />
+    <link rel="stylesheet" href="footer.css" />
+    <style>
+      .carousel {
         position: relative;
         width: 100%;
         overflow: hidden;
       }
-      
+
       .carousel-inner {
         display: flex;
       }
-      
+
       .carousel-item {
         flex: 0 0 25%; /* Display 4 items per slide */
       }
-      
+
       .featured-product {
         text-align: center;
       }
-      
+
       .featured-product img {
         width: 100%;
         height: auto;
         border-radius: 5px;
       }
-      
+
       .featured-product h3 {
         margin-top: 10px;
         font-size: 18px;
       }
-      
+
       .featured-product p {
         font-size: 16px;
       }
-      
+
       .featured-product .view-product {
         display: block;
         padding: 8px 16px;
@@ -48,11 +49,11 @@
         border-radius: 5px;
         font-size: 16px;
       }
-      
+
       .featured-product .view-product:hover {
         background-color: #0056b3;
       }
-      
+
       .prev,
       .next {
         position: absolute;
@@ -64,772 +65,806 @@
         font-size: 24px;
         cursor: pointer;
       }
-      
+
       .prev {
         left: 0;
       }
-      
+
       .next {
         right: 0;
       }
-    body {
-      font-family: 'Arial', sans-serif;
-      margin: 2vw;
-      padding: 0;
-      text-align: center;
-    }
 
-    .header {
-      width:auto;
-      background-color: #ffffff;
-      text-align: center;
-      flex-wrap: wrap;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1em;
-      margin-top: -50px;
-    }
-
-    .brand-container {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 1em;
-    }
-
-    .logo {
-      display: inline-block;
-      margin-right: 20px;
-    }
-    
-
-    .search-container {
-      text-align: center;
-  }
-
-  .search-box {
-    width: 600px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    outline: none;
-    font-size: 16px;
-    display: inline-block; 
-    margin-right: 10px; 
-  }
-
-  .search-button {
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-  }
-  .icon {
-    padding: 30px;
-    margin: right 0px;;   
-  }
-  .icon i {
-    font-size: 30px 
-  }
-  .icon a{
-    text-decoration: none;
-    color:inherit;
-  }
-  .icon a:first-child {
-    margin-right: 10px; 
-  }
-    .nav-option {
-      display: inline-block;
-      text-decoration: none;
-      color: #333;
-      font-size: large;
-      font-weight: bold;
-      margin-right: 1em; /* Adjust spacing between navigation links */
-      font-size: 1em;
-    }
-    .nav-option:hover {
-      color: gold; 
-    }
-    .nav-option.active {
-      /* Add your styles for the active link, for example: */
-      font-weight: bold;
-      color: rgb(52, 172, 41); /* Change to your preferred color */
-  }
- 
-    footer {
-      background-image: url("images/footer.png");
-      background-size: cover;
-      color: #fff;
-      padding: 2rem 0;
-      margin-top: auto;
-      display: flex;
-      align-self: flex-start;
-      align-items: flex-start;
-      flex-wrap: wrap;
-    }
-    
-    .footer-component {
-      flex: 1; /* Each component will take equal width */
-      box-sizing: border-box;
-      padding: 0 20px; /* Adjust padding as needed */
-    }
-    .product-container {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      padding: 20px;
-  }
-  .product-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    padding: 20px;
-  }
-
-  .product-image {
-    width: 50%;
-    max-height: 500px;
-    object-fit: contain;
-  }
-
-  .product-views {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding-left: 20px;
-    margin-top: 20px;
-  }
-
-  .product-views img {
-    width: 100px;
-    height: 100px;
-    margin-right: 10px;
-    cursor: pointer;
-  }
-
-  .product-description {
-    width: 50%;
-    padding: 20px;
-    text-align: left;
-    margin-top: 20px;
-  }
-
-  .tags {
-    text-align: left;
-    margin-top: 20px;
-  }
-  .tag-button,.variant-button,.Size-button {
-    background-color: #4CAF50; /* Green color, you can customize */
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 10px; /* Circular edges */
-    cursor: pointer;
-    font-size: 16px;
-    margin-right: 10px; /* Adjust spacing between buttons */
-  }
-  
-  .tag-button:hover {
-    background-color: #45a049; 
-  }
-  .variant-button:hover {
-    background-color: #45a049; 
-  }
-  .Size-button:hover {
-    background-color: #45a049; 
-  }
-  .variant-button.selected, .Size-button.selected {
-    background-color:darkgreen; /* Green color, you can customize */
-    color: white;
-  }
-  .share-icons {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 20px;
-  }
-
-  .share-icons i {
-    font-size: 24px;
-    margin: 0 10px;
-  }
-
-    /* Add media query for responsiveness */
-    @media (max-width: 768px) {
-      .footer-component {
-        flex: 1 0 100%; /* Components will stack on top of each other on small screens */
+      .product-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        padding: 20px;
       }
-    }
-    @media (max-width: 768px) {
-      /* Styles for screens up to 768px wide */
-      .search-box {
-        width: 80%;
+      .product-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        padding: 20px;
       }
-    
-      .nav-option {
-        font-size: 0.9em;
+
+      .product-image {
+        width: 50%;
+        max-height: 500px;
+        object-fit: contain;
       }
-    }
-    .buy-button,.add-to-cart-button {
-      display: inline-block;
-      background-color: green;
-      color: white;
-      padding: 10px 20px;
-      border-radius: 5px;
-      text-decoration: none;
-      margin-top: 20px ;
-      border: 1px solid black;
-      font-size: 16px;
-    } 
-    .container {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 20px;
-  }
 
-  /* Style for the buttons */
-  .button {
-      display: inline-block;
-      padding: 10px 20px;
-      font-size: 16px;
-      cursor: pointer;
-      margin: 10px 10px 10px 0;
-      background-color: white; /* Default button color */
-      color: #007bff;
-      border: 1px solid #007bff;
-      border-radius: 5px;
-  }
+      .product-views {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-left: 20px;
+        margin-top: 20px;
+      }
 
-  /* Style for active button */
-  .button.active {
-      background-color: #4CAF50; /* Green */
-      color: white;
-  }
+      .product-views img {
+        width: 100px;
+        height: 100px;
+        margin-right: 10px;
+        cursor: pointer;
+      }
 
-  /* Style for the content container */
-  #content {
-      margin-top: 20px;
-      text-align: left;
-  }
+      .product-description {
+        width: 50%;
+        padding: 20px;
+        text-align: left;
+        margin-top: 20px;
+      }
 
-  /* Style for star rating */
-  .stars {
-      margin-bottom: 10px;
-  }
+      .tags {
+        text-align: left;
+        margin-top: 20px;
+      }
+      .tag-button,
+      .variant-button,
+      .Size-button {
+        background-color: #4caf50; /* Green color, you can customize */
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 10px; /* Circular edges */
+        cursor: pointer;
+        font-size: 16px;
+        margin-right: 10px; /* Adjust spacing between buttons */
+      }
 
-  .star {
-      display: inline-block;
-      font-size: 24px;
-      color: #FFD700;
-      cursor: pointer;
-  }
+      .tag-button:hover {
+        background-color: #45a049;
+      }
+      .variant-button:hover {
+        background-color: #45a049;
+      }
+      .Size-button:hover {
+        background-color: #45a049;
+      }
+      .variant-button.selected,
+      .Size-button.selected {
+        background-color: darkgreen; /* Green color, you can customize */
+        color: white;
+      }
+      .share-icons {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 20px;
+      }
 
-  .star:hover {
-      color: #FFAC33;
-  }.featured-products {
-    text-align: center;
-  }
-  
-  .featured-products h2 {
-    font-size: 24px;
-    margin-bottom: 20px;
-  }
-  
-  .featured-product {
-    display: inline-block;
-    width: 200px;
-    margin: 0 15px;
-    text-align: center;
-  }
-  
-  .featured-product img {
-    width: 100%;
-    height: auto;
-    border-radius: 5px;
-  }
-  
-  .featured-product h3 {
-    margin-top: 10px;
-    font-size: 18px;
-  }
-  
-  .featured-product p {
-    font-size: 16px;
-    margin-bottom: 10px;
-  }
-  
-  .featured-product .view-product {
-    display: block;
-    padding: 8px 16px;
-    background-color: #007bff;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 5px;
-    font-size: 16px;
-  }
-  
-  .featured-product .view-product:hover {
-    background-color: #0056b3;
-  }
-  
-  
-  </style>
-    <script src="https://kit.fontawesome.com/3b4d628af1.js" crossorigin="anonymous"></script>
+      .share-icons i {
+        font-size: 24px;
+        margin: 0 10px;
+      }
 
-    </head>
+      .buy-button,
+      .add-to-cart-button {
+        display: inline-block;
+        background-color: green;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 5px;
+        text-decoration: none;
+        margin-top: 20px;
+        border: 1px solid black;
+        font-size: 16px;
+      }
+      .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+      }
 
-<body>
+      /* Style for the buttons */
+      .button {
+        display: inline-block;
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+        margin: 10px 10px 10px 0;
+        background-color: white; /* Default button color */
+        color: #007bff;
+        border: 1px solid #007bff;
+        border-radius: 5px;
+      }
 
-  <div class="header">
-    <div class="brand-container">
-      <div class="logo">
-        <a href=index.html><img src="images/logo.png" alt="Logo" width="250" height="150"></a>
+      /* Style for active button */
+      .button.active {
+        background-color: #4caf50; /* Green */
+        color: white;
+      }
+
+      /* Style for the content container */
+      #content {
+        margin-top: 20px;
+        text-align: left;
+      }
+
+      /* Style for star rating */
+      .stars {
+        margin-bottom: 10px;
+      }
+
+      .star {
+        display: inline-block;
+        font-size: 24px;
+        color: #ffd700;
+        cursor: pointer;
+      }
+
+      .star:hover {
+        color: #ffac33;
+      }
+      .featured-products {
+        text-align: center;
+      }
+
+      .featured-products h2 {
+        font-size: 24px;
+        margin-bottom: 20px;
+      }
+
+      .featured-product {
+        display: inline-block;
+        width: 200px;
+        margin: 0 15px;
+        text-align: center;
+      }
+
+      .featured-product img {
+        width: 100%;
+        height: auto;
+        border-radius: 5px;
+      }
+
+      .featured-product h3 {
+        margin-top: 10px;
+        font-size: 18px;
+      }
+
+      .featured-product p {
+        font-size: 16px;
+        margin-bottom: 10px;
+      }
+
+      .featured-product .view-product {
+        display: block;
+        padding: 8px 16px;
+        background-color: #007bff;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 5px;
+        font-size: 16px;
+      }
+
+      .featured-product .view-product:hover {
+        background-color: #0056b3;
+      }
+      /* Add a media query for screens smaller than 768px */
+      @media only screen and (max-width: 768px) {
+        .product-container {
+          flex-direction: column; /* Stack elements vertically on small screens */
+          /* Center align elements */
+        }
+
+        .product-image {
+          width: 60%;
+          max-height: none;
+        }
+        .product-views img {
+          width: 50px;
+          height: 50px;
+          margin-right: 10px;
+          cursor: pointer;
+        }
+        .product-description {
+          width: 100%;
+          padding: 0;
+          text-align: center;
+          margin-top: 20px;
+        }
+
+        .tags {
+          margin-top: 20px;
+          text-align: center;
+        }
+
+        .tag-button,
+        .variant-button,
+        .Size-button {
+          margin: 5px;
+        }
+
+        .share-icons {
+          width: 100%;
+          margin-top: 20px;
+        }
+        .carousel-inner {
+          display: flex;
+          width: 100% !important;
+        }
+
+        .share-icons h3 {
+          text-align: center;
+        }
+
+        .featured-product {
+          position: relative;
+          margin-top: 20px;
+          width: 100% !important;
+          padding-right: 1rem;
+        }
+        .not-showing{
+          display: none;
+        }
+        .featured-product img {
+          position: relative;
+          object-fit: fill;
+         min-width: 350px;
+         align-self: center;
+        }
+        .carousel-item {
+          position: relative;
+          width: 100% !important;
+        }
+        .button {
+          font-size: 12px;
+        }
+      }
+    </style>
+    <script
+      src="https://kit.fontawesome.com/3b4d628af1.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+
+  <body>
+    <div class="header">
+      <div class="brand-container">
+        <div class="logo">
+          <a href="index.html"
+            ><img src="images/logo_new.png" alt="Logo" width="150" height="50"
+          /></a>
+        </div>
+        <div class="search-container">
+          <input type="text" class="search-box" placeholder="Search..." />
+          <button class="search-button">Search</button>
+        </div>
+        <div class="icon">
+          <span id="search-icon">
+            <img src="images/search.png" height="35" width="35" />
+          </span>
+          <a href="user.html">
+            <img src="images/user.png" height="35" width="35" />
+          </a>
+          <a href="cart.html">
+            <img src="images/cart.png" height="35" width="35" />
+          </a>
+        </div>
       </div>
-      <div class="search-container">
-        <input type="text" class="search-box" placeholder="Search...">
-        <button class="search-button">Search</button>
+    </div>
+    <nav id="nav">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about_us.html">About Us</a></li>
+        <li><a href="achievements.html" class="active">Achievements</a></li>
+        <li><a href="period_calculator.html">Periodic Calculator</a></li>
+        <li><a href="blogs.html">Blogs</a></li>
+        <li><a href="products.html">Product</a></li>
+        <li><a href="contact_us.html">Contact Us</a></li>
+      </ul>
+      <button id="nav-toggle" class="fa-solid fa-bars"></button>
+    </nav>
+
+    <div class="product-container">
+      <div>
+        <img
+          src="images/product1.png"
+          alt="Product Image"
+          class="product-image"
+        />
+        <div class="product-views" id="product-views">
+          <!-- Add different views of the product as needed -->
+          <img
+            src="images/view1.png"
+            alt="View 1"
+            onclick="changeProductImage('images/view1.png')"
+          />
+          <img
+            src="images/view2.png"
+            alt="View 2"
+            onclick="changeProductImage('images/view2.png')"
+          />
+          <img
+            src="images/view3.png"
+            alt="View 3"
+            onclick="changeProductImage('images/view3.png')"
+          />
+          <img
+            src="images/view1.png"
+            alt="View 4"
+            onclick="changeProductImage('images/view1.png')"
+          />
+          <img
+            src="images/view2.png"
+            alt="View 5"
+            onclick="changeProductImage('images/view2.png')"
+          />
+        </div>
+
+        <div class="share-icons" style="display: block; width: 50%">
+          <h3 style="text-align: left">Share Now:</h3>
+          <div
+            style="
+              display: flex;
+              width: 50%;
+              justify-content: space-between;
+              flex-wrap: no-wrap;
+            "
+          >
+            <a href="#"><i class="fab fa-whatsapp"></i></a>
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+          </div>
+        </div>
+        <div class="tags">
+          <h3 style="text-align: left">Tags:</h3>
+          <div
+            style="
+              display: flex;
+              width: 50%;
+              justify-content: space-between;
+              flex-wrap: no-wrap;
+            "
+          >
+            <button class="tag-button">Tag1</button>
+            <button class="tag-button">Tag2</button>
+            <button class="tag-button">Tag3</button>
+          </div>
+        </div>
+      </div>
+      <div class="product-description">
+        <h2>Description</h2>
+        <p>
+          Product description goes here. Lorem ipsum dolor sit amet, consectetur
+          adipiscing elit. Proin auctor sapien at metus efficitur, in fermentum
+          velit semper. Nullam vel nulla nec nunc faucibus feugiat. Phasellus eu
+          mi eget purus blandit mollis.
+        </p>
+        <div>
+          <span style="font-size: 1.5em">Price: $50 </span
+          ><span
+            style="text-decoration: line-through; font: size 1em; color: grey"
+            >$60</span
+          >
+        </div>
+        <div>
+          <h2>Variant</h2>
+          <button class="variant-button selected">Black</button>
+          <button class="variant-button">Blue</button>
+        </div>
+        <div>
+          <h2>Size</h2>
+          <button class="Size-button selected">M</button>
+          <button class="Size-button">L</button>
+          <button class="Size-button">XL</button>
+        </div>
+        <br />
+        <div>
+          <h2>Quantity:</h2>
+          <select id="quantity" name="quantity" style="font-size: 20px">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+          </select>
+        </div>
+        <a href="cart.html" class="buy-button" onclick="addToCart()">Buy Now</a>
+        <button class="add-to-cart-button" id="addToCartButton">
+          <i class="fas fa-shopping-cart"></i> Add to Cart
+        </button>
       </div>
     </div>
-    <div class="icon">
-      <a href="user.html">
-       <i class="fa-regular fa-user" ></i>
-      </a> 
-       <a href="cart.html">
-         <i class="fa-solid fa-bag-shopping"></i>
-       </a> 
-      </div>
-   
-  </div>
-  <div class="navigation">
-    <a href="index.html" class="nav-option ">Home</a>
-    <a href="about_us.html" class="nav-option ">About Us</a>
-    <a href="achievements.html" class="nav-option">Achievements</a>
-    <a href="period_calculator.html" class="nav-option">Period Calculator</a>
-    <a href="blogs.html" class="nav-option">Blogs</a>
-    <a href="products.html" class="nav-option active">Product</a>
-    <a href="contact_us.html" class="nav-option">Contact Us</a>
 
-  </div>
-<hr>
-<div class="product-container">
-  <div>
-    <img src="images/product1.png" alt="Product Image" class="product-image" style="width:400px; height:400px">
-    <div class="product-views" id="product-views">
-      <!-- Add different views of the product as needed -->
-      <img src="images/view1.png" alt="View 1" onclick="changeProductImage('images/view1.png')">
-      <img src="images/view2.png" alt="View 2" onclick="changeProductImage('images/view2.png')">
-      <img src="images/view3.png" alt="View 3" onclick="changeProductImage('images/view3.png')">
-      <img src="images/view1.png" alt="View 4" onclick="changeProductImage('images/view1.png')">
-      <img src="images/view2.png" alt="View 5" onclick="changeProductImage('images/view2.png')">
-    </div>
-    
-    <div class="share-icons" style="display: block; width:50%;">
-      <h3 style="text-align:left;">Share Now:</h3> 
-      <div style="display: flex; width:50%;justify-content:space-between; flex-wrap:no-wrap;">
-      <a href="#"><i class="fab fa-whatsapp"></i></a>
-      <a href="#"><i class="fab fa-facebook"></i></a>
-      <a href="#"><i class="fab fa-twitter"></i></a>
-    </div>
-    </div>
-    <div class="tags" >
-      <h3 style="text-align: left;">Tags:</h3>
-      <div style="display: flex; width:50%;justify-content:space-between; flex-wrap:no-wrap;">
-        <button class="tag-button">Tag1</button>
-        <button class="tag-button">Tag2</button>
-        <button class="tag-button">Tag3</button>
-      </div>
-    </div>
-  </div>
-  <div class="product-description">
-    <h2>Description</h2>
-    <p>Product description goes here. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin auctor sapien at metus efficitur, in fermentum velit semper. Nullam vel nulla nec nunc faucibus feugiat. Phasellus eu mi eget purus blandit mollis.</p>
-    <div><span style="font-size: 1.5em;">Price: $50 </span><span style="text-decoration: line-through; font: size 1em; color:grey;">$60</span></div>
-    <div>
-      <h2>Variant</h2>
-      <button class="variant-button selected">Black</button>
-      <button class="variant-button">Blue</button>
-    </div>
-    <div>
-      <h2>Size</h2>
-      <button class="Size-button selected">M</button>
-      <button class="Size-button">L</button>
-      <button class="Size-button">XL</button>
-    </div>
-    <br>
-    <div><h2>Quantity:</h2>
-      <select id="quantity" name="quantity" style="font-size: 20px;">
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-        <option value="6">6</option>
-        <option value="7">7</option>
-        <option value="8">8</option>
-        <option value="9">9</option>
-        <option value="10">10</option>
-      </select>
-    </div>
-    <a href="cart.html" class="buy-button" onclick="addToCart()">Buy Now</a>
-    <button class="add-to-cart-button" id="addToCartButton">
-        <i class="fas fa-shopping-cart"></i> Add to Cart
-    </button>
-    </div>
-  </div>
-</div>
-<hr>
-<div class="container">
+    <hr />
+    <div class="container">
+      <!-- First Button to Show Reviews -->
+      <button class="button active" onclick="showReviews()">
+        Show Reviews
+      </button>
 
-  <!-- First Button to Show Reviews -->
-  <button class="button active" onclick="showReviews()">Show Reviews</button>
+      <!-- Second Button to Show Specifications -->
+      <button class="button" onclick="showSpecifications()">
+        Show Specifications
+      </button>
 
-  <!-- Second Button to Show Specifications -->
-  <button class="button" onclick="showSpecifications()">Show Specifications</button>
-
-  <!-- Container to Display Content -->
-  <div id="content">
-      <div id="reviews">
+      <!-- Container to Display Content -->
+      <div id="content">
+        <div id="reviews">
           <!-- Reviews Content (Shown by default) -->
           <h2>Customer Reviews</h2>
           <div id="existingReviews">
-              <!-- Existing reviews will be dynamically added here -->
+            <!-- Existing reviews will be dynamically added here -->
           </div>
           <!-- Form to Add Review -->
           <h3>Add Your Review</h3>
           <div class="stars">
-              <!-- Star rating will be dynamically updated here -->
+            <!-- Star rating will be dynamically updated here -->
           </div>
-          <textarea id="comment" rows="4" cols="50" placeholder="Enter your review"></textarea><br>
+          <textarea
+            id="comment"
+            rows="4"
+            cols="50"
+            placeholder="Enter your review"
+          ></textarea
+          ><br />
           <button class="button" onclick="submitReview()">Submit Review</button>
-      </div>
-      <div id="specifications" style="display: none;">
+        </div>
+        <div id="specifications" style="display: none">
           <!-- Specifications Content (Hidden by default) -->
           <h2>Product Specifications</h2>
           <ul>
-              <li>Specification 1: ...</li>
-              <li>Specification 2: ...</li>
-              <!-- Add more specifications as needed -->
+            <li>Specification 1: ...</li>
+            <li>Specification 2: ...</li>
+            <!-- Add more specifications as needed -->
           </ul>
+        </div>
       </div>
-  </div>
-</div>
-<hr>
-<h1>Featured Products</h1>
+    </div>
+    <hr />
+    <h1>Featured Products</h1>
 
-<div class="carousel">
-    <div class="carousel-inner">
-      <!-- Product 1 -->
-      <div class="carousel-item active">
-        <div class="featured-product">
-          <img src="images/pad1.jpg" alt="Product 1" style="height: 200px; width: 200px;">
-          <h3>Product Name 1</h3>
-          <p>Price: $50</p>
-          <a href="pads.html" class="view-product">View Product</a>
+    <div class="carousel">
+      <div class="carousel-inner">
+        <!-- Product 1 -->
+        <div class="carousel-item active">
+          <div class="featured-product">
+            <img
+              src="images/Bag1.jpg"
+              alt="Product 1"
+              style="height: 200px; width: 200px"
+            />
+            <h3>Product Name 1</h3>
+            <p>Price: $50</p>
+            <a href="pads.html" class="view-product">View Product</a>
+          </div>
         </div>
-      </div>
-      <!-- Product 2 -->
-      <div class="carousel-item">
-        <div class="featured-product">
-          <img src="images/Tissue1.jpg" alt="Product 2">
-          <h3>Product Name 2</h3>
-          <p>Price: $140</p>
-          <a href="tissues.html" class="view-product">View Product</a>
+        <!-- Product 2 -->
+        <div class="carousel-item not-showing">
+          <div class="featured-product">
+            <img src="images/Tissue1.jpg" alt="Product 2" />
+            <h3>Product Name 2</h3>
+            <p>Price: $140</p>
+            <a href="tissues.html" class="view-product">View Product</a>
+          </div>
         </div>
-      </div>
         <!-- Product 3 -->
-        <div class="carousel-item">
-            <div class="featured-product">
-              <img src="images/bag1.jpg" alt="Product 2">
-              <h3>Product Name 3</h3>
-              <p>Price: $160</p>
-              <a href="#" class="view-product">View Product</a>
-            </div>
+        <div class="carousel-item not-showing">
+          <div class="featured-product">
+            <img src="images/bag1.jpg" alt="Product 3" />
+            <h3>Product Name 3</h3>
+            <p>Price: $160</p>
+            <a href="bags.html" class="view-product">View Product</a>
           </div>
-            <!-- Product 4 -->
-      <div class="carousel-item">
-        <div class="featured-product">
-          <img src="images/view1.png" alt="Product 2">
-          <h3>Product Name 4</h3>
-          <p>Price: $160</p>
-          <a href="#" class="view-product">View Product</a>
         </div>
-      </div>
+        <!-- Product 4 -->
+        <div class="carousel-item not-showing">
+          <div class="featured-product">
+            <img src="images/view1.png" alt="Product 4" />
+            <h3>Product Name 4</h3>
+            <p>Price: $160</p>
+            <a href="#" class="view-product">View Product</a>
+          </div>
+        </div>
         <!-- Product 5 -->
-        <div class="carousel-item">
-            <div class="featured-product">
-              <img src="images/view2.png" alt="Product 2">
-              <h3>Product Name 5</h3>
-              <p>Price: $180</p>
-              <a href="#" class="view-product">View Product</a>
-            </div>
+        <div class="carousel-item not-showing">
+          <div class="featured-product">
+            <img src="images/view2.png" alt="Product 5" />
+            <h3>Product Name 5</h3>
+            <p>Price: $180</p>
+            <a href="#" class="view-product">View Product</a>
           </div>
-            <!-- Product 6 -->
-      <div class="carousel-item">
-        <div class="featured-product">
-          <img src="images/view3.png" alt="Product 2">
-          <h3>Product Name 6</h3>
-          <p>Price: $200</p>
-          <a href="#" class="view-product">View Product</a>
         </div>
+        <!-- Product 6 -->
+        <div class="carousel-item not-showing">
+          <div class="featured-product">
+            <img src="images/view3.png" alt="Product 6" />
+            <h3>Product Name 6</h3>
+            <p>Price: $200</p>
+            <a href="#" class="view-product">View Product</a>
+          </div>
+        </div>
+        <!-- Add more carousel items as needed -->
       </div>
-      <!-- Add more carousel items as needed -->
+      <button class="prev" onclick="moveSlide(-1)"><</button>
+      <button class="next" onclick="moveSlide(1)">></button>
     </div>
-    <button class="prev" onclick="moveSlide(-1)"><</button>
-    <button class="next" onclick="moveSlide(1)">></button>
-  </div>
 
+    <footer class="footer">
+      <div class="waves">
+        <div class="wave" id="wave1"></div>
+        <div class="wave" id="wave2"></div>
+        <div class="wave" id="wave3"></div>
+        <div class="wave" id="wave4"></div>
+      </div>
+      <ul class="social-icon">
+        <li class="social-icon__item">
+          <a class="social-icon__link" href="#">
+            <ion-icon name="logo-facebook"></ion-icon>
+          </a>
+        </li>
+        <li class="social-icon__item">
+          <a class="social-icon__link" href="#">
+            <ion-icon name="logo-twitter"></ion-icon>
+          </a>
+        </li>
+        <li class="social-icon__item">
+          <a class="social-icon__link" href="#">
+            <ion-icon name="logo-linkedin"></ion-icon>
+          </a>
+        </li>
+        <li class="social-icon__item">
+          <a class="social-icon__link" href="#">
+            <ion-icon name="logo-instagram"></ion-icon>
+          </a>
+        </li>
+      </ul>
+      <ul class="menu">
+        <li class="menu__item">
+          <a class="menu__link" href="index.html">Home</a>
+        </li>
+        <li class="menu__item">
+          <a class="menu__link" href="about_us.html">About</a>
+        </li>
+        <li class="menu__item"><a class="menu__link" href="#">Services</a></li>
+        <li class="menu__item"><a class="menu__link" href="#">Team</a></li>
+        <li class="menu__item">
+          <a class="menu__link" href="contact_us.html">Contact</a>
+        </li>
+      </ul>
+      <p>&copy; 2024 Nishkaam . All Rights Reserved.</p>
+    </footer>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+    ></script>
 
-  <hr>
-  <footer>
-    <!-- Nishkaam Section -->
-   <div style="flex: 1 1 0; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 16px; display: inline-flex; margin-left: 32px;">
-      <div style=" color: #658C4A; font-size: 20px; font-family: Inter; font-weight: 600; line-height: 28px; word-wrap: break-word; margin-bottom: 8px;">Nishkaam</div>
-    <div style=" height: 88px; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 8px; display: flex">
-      <div style="color: #333333; font-size: 16px; font-family: Inter; font-weight: 600; line-height: 24px; word-wrap: break-word">Marwadi University Campus</div>
-      <div style="color: #333333; font-size: 16px; font-family: Inter; font-weight: 600; line-height: 24px; word-wrap: break-word">Rajkot-Morbi Highway ,Gujarat</div>
-      <div style="color: #333333; font-size: 16px; font-family: Inter; font-weight: 600; line-height: 24px; word-wrap: break-word">+91 91738 01621</div>
-    </div>
-</div>
-
-  <!-- Product Categories Section -->
-<div style="flex: 1 1 0; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 16px; display: inline-flex">
-  <div style="color: #658C4A; font-size: 20px; font-family: Inter; font-weight: 600; line-height: 28px; word-wrap: break-word">Product Categories</div>
-  <div style="height: 216px; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 8px; display: flex">
-    <div style="font-size: 16px; font-family: Inter; font-weight: 600; line-height: 24px; word-wrap: break-word;"><a href="pads.html" style="text-decoration: none; color: black;">Pads</a></div>
-    <div style="font-size: 16px; font-family: Inter; font-weight: 600; line-height: 24px; word-wrap: break-word;"><a href="tissues.html" style="text-decoration: none; color: black;">Tissues</a></div>
-    <div style="font-size: 16px; font-family: Inter; font-weight: 600; line-height: 24px; word-wrap: break-word;"><a href="bags.html" style="text-decoration: none; color: black;">Bags</a></div>
-    <div style="font-size: 16px; font-family: Inter; font-weight: 600; line-height: 24px; word-wrap: break-word;"><a href="home-goods.html" style="text-decoration: none; color: black;">Home Goods</a></div>
-    <div style="font-size: 16px; font-family: Inter; font-weight: 600; line-height: 24px; word-wrap: break-word;"><a href="furniture.html" style="text-decoration: none; color: black;">Furniture</a></div>
-    <div style="font-size: 16px; font-family: Inter; font-weight: 600; line-height: 24px; word-wrap: break-word;"><a href="accessories.html" style="text-decoration: none; color: black;">Accessories</a></div>
-    <div style="font-size: 16px; font-family: Inter; font-weight: 600; line-height: 24px; word-wrap: break-word;"><a href="gift.html" style="text-decoration: none; color: black;">Gift</a></div>
-  </div>
-</div>
-<!-- Support Section -->
-<div style="flex: 1 1 0; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 16px; display: inline-flex">
-  <div style="color: #658C4A; font-size: 20px; font-family: Inter; font-weight: 600; line-height: 28px; word-wrap: break-word">Support</div>
-  <div style="height: 152px; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 8px; display: flex">
-    <div style="font-size: 16px; font-family: Inter; font-weight: 600; line-height: 24px; word-wrap: break-word;"><a href="shipping.html" style="text-decoration: none; color: black;">Shipping</a></div>
-    <div style="font-size: 16px; font-family: Inter; font-weight: 600; line-height: 24px; word-wrap: break-word;"><a href="returns.html" style="text-decoration: none; color: black;">Returns</a></div>
-    <div style="font-size: 16px; font-family: Inter; font-weight: 600; line-height: 24px; word-wrap: break-word;"><a href="privacy-policy.html" style="text-decoration: none; color: black;">Privacy Policy</a></div>
-    <div style="font-size: 16px; font-family: Inter; font-weight: 600; line-height: 24px; word-wrap: break-word;"><a href="terms-of-use.html" style="text-decoration: none; color: black;">Terms of Use</a></div>
-    <div style="font-size: 16px; font-family: Inter; font-weight: 600; line-height: 24px; word-wrap: break-word;"><a href="affiliates.html" style="text-decoration: none; color: black;">Affiliates</a></div>
-  </div>
-</div>
-
-
-  <!-- Location Section -->
-  <div style="width: 341px; height: 260px; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 16px; display: inline-flex">
-    <div style=" color: #658C4A; font-size: 20px; font-family: Inter; font-weight: 600; line-height: 28px; word-wrap: break-word">Location</div>
-    <div style=" height: 215px; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 8px; display: flex">
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3689.637273789306!2d70.79224057509602!3d22.367320979638393!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3959c972761ce515%3A0x3651e3fe1e9df4f8!2sMarwadi%20University!5e0!3m2!1sen!2sin!4v1706769068035!5m2!1sen!2sin" width="314" height="215px" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-    </div>
-  </div>
-</div>
-<hr>
-</footer>
-<hr>
-<div class="copyright">
-  <p style="align-self: flex-start;">© 2024 Nishkaam . All Rights Reserved.</p>
-</div>
-<script>
-   
-    function handleSearch() {
-      var searchTerm = document.querySelector('input[type="text"]').value;
-      alert('Searching for: ' + searchTerm);
-
-    }
-    document.querySelector('button').addEventListener('click', handleSearch);
-    function changeProductImage(imagePath) {
-    document.querySelector('.product-image').src = imagePath;
-  }
-    // Function to handle variant button clicks
-    function handleVariantButtonClick(event) {
-      // Remove the "selected" class from all variant buttons
-      var variantButtons = document.querySelectorAll('.variant-button');
-      variantButtons.forEach(function(button) {
-        button.classList.remove('selected');
-      });
-      // Add the "selected" class to the clicked variant button
-      event.target.classList.add('selected');
-    }
-  
-    // Add event listeners to variant buttons
-    var variantButtons = document.querySelectorAll('.variant-button');
-    variantButtons.forEach(function(button) {
-      button.addEventListener('click', handleVariantButtonClick);
-    });
-  
-    // Function to handle size button clicks
-    function handleSizeButtonClick(event) {
-      // Remove the "selected" class from all size buttons
-      var sizeButtons = document.querySelectorAll('.Size-button');
-      sizeButtons.forEach(function(button) {
-        button.classList.remove('selected');
-      });
-      // Add the "selected" class to the clicked size button
-      event.target.classList.add('selected');
-    }
-  
-    // Add event listeners to size buttons
-    var sizeButtons = document.querySelectorAll('.Size-button');
-    sizeButtons.forEach(function(button) {
-      button.addEventListener('click', handleSizeButtonClick);
-    });
-   // Select the "Add to Cart" button
-var addToCartButton = document.getElementById("addToCartButton");
-
-// Add a click event listener to the "Add to Cart" button
-addToCartButton.addEventListener("click", function (event) {
-  // Prevent the default behavior (page redirect)
-  event.preventDefault();
-
-  // Call the addToCart function
-  addToCart();
-});
-
-// Your existing addToCart function
-function addToCart() {
-  // Get the selected quantity
-  var quantity = document.getElementById("quantity").value;
-
-  // You can perform additional logic here, such as adding the product to a cart object or making an API call to add the product to the cart
-
-  // For demonstration purposes, let's alert the user that the product has been added to the cart
-  alert("Product added to cart. Quantity: " + quantity);
-
-  // You can add your custom logic here for updating the cart UI or performing any other action
-} // Function to show reviews and hide specifications
-function showReviews() {
-    document.getElementById("reviews").style.display = "block";
-    document.getElementById("specifications").style.display = "none";
-    document.querySelector('.button.active').classList.remove('active');
-    document.querySelectorAll('.button')[0].classList.add('active');
-}
-
-// Function to show specifications and hide reviews
-function showSpecifications() {
-    document.getElementById("reviews").style.display = "none";
-    document.getElementById("specifications").style.display = "block";
-    document.querySelector('.button.active').classList.remove('active');
-    document.querySelectorAll('.button')[1].classList.add('active');
-}
-
-// Function to update star rating
-function setRating(rating) {
-    // Clear previous rating
-    document.querySelectorAll('.star').forEach(function(element) {
-        element.classList.remove('fa', 'fa-star');
-        element.classList.add('far', 'fa-star');
-    });
-
-    // Set new rating
-    for (let i = 0; i < rating; i++) {
-        document.getElementById('star' + i).classList.remove('far');
-        document.getElementById('star' + i).classList.add('fa');
-    }
-}
-function submitReview() {
-  const comment = document.getElementById('comment').value;
-  const rating = document.querySelectorAll('.star.fa').length;
-
-  // Clear previous rating and comment
-  document.getElementById('comment').value = '';
-  setRating(0);
-
-  // Append new review to existing reviews
-  const existingReviews = document.getElementById('existingReviews');
-  const newReview = document.createElement('div');
-  newReview.innerHTML = `<p><strong>Rating:</strong> ${rating} stars</p><p><strong>Comment:</strong> ${comment}</p>`;
-  existingReviews.appendChild(newReview);
-}
-
-// Function to update star rating
-function setRating(rating) {
-  // Clear previous rating
-  document.querySelectorAll('.star').forEach(function(element) {
-    element.classList.remove('fa', 'fa-star');
-    element.classList.add('far', 'fa-star');
-  });
-
-  // Set new rating
-  for (let i = 0; i < rating; i++) {
-    document.getElementById('star' + (i + 1)).classList.remove('far');
-    document.getElementById('star' + (i + 1)).classList.add('fa');
-  }
-}
-
-// Initialize star rating
-document.addEventListener('DOMContentLoaded', function() {
-  const starsContainer = document.querySelector('.stars');
-  for (let i = 1; i <= 5; i++) {
-    const star = document.createElement('span');
-    star.id = 'star' + i;
-    star.classList.add('star', 'far', 'fa-star');
-    star.addEventListener('click', function() {
-      setRating(i);
-    });
-    starsContainer.appendChild(star);
-  }
-});
-
-document.addEventListener("DOMContentLoaded", function() {
-    const slides = document.getElementsByClassName("carousel-item");
-    const totalSlides = slides.length;
-    
-    for (let i = 0; i < totalSlides; i++) {
-      if (i >= 4) {
-        slides[i].style.display = "none";
+    <script>
+      function handleSearch() {
+        var searchTerm = document.querySelector('input[type="text"]').value;
+        alert("Searching for: " + searchTerm);
       }
-    }
-  });
-  
-  document.addEventListener("DOMContentLoaded", function() {
-    const slides = document.getElementsByClassName("carousel-item");
-    const totalSlides = slides.length;
-  
-    // Hide all slides except the first four
-    for (let i = 0; i < totalSlides; i++) {
-      if (i >= 4) {
-        slides[i].style.display = "none";
-      }
-    }
-  });
-  
-  let slideIndex = 0;
-  
-  function moveSlide(n) {
-    const slides = document.getElementsByClassName("carousel-item");
-    const totalSlides = slides.length;
-  
-    // Update the slideIndex
-    slideIndex += n;
-  
-    // Loop slideIndex if it goes beyond the total number of slides
-    if (slideIndex >= totalSlides) {
-      slideIndex = 0;
-    }
-    if (slideIndex < 0) {
-      slideIndex = totalSlides - 1;
-    }
-  
-    // Hide all slides
-    for (let i = 0; i < totalSlides; i++) {
-      slides[i].style.display = "none";
-    }
-  
-    // Show four slides starting from slideIndex
-    for (let i = slideIndex; i < slideIndex + 4; i++) {
-      const adjustedIndex = i % totalSlides; // Handle looping back to the beginning
-      slides[adjustedIndex].style.display = "block";
-    }
-  }
-  </script>
-  <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-</body>
 
+      document.querySelector("button").addEventListener("click", handleSearch);
+      document.querySelectorAll(".hover-button").forEach((button) => {
+        button.addEventListener("mouseover", function () {
+          this.style.backgroundColor = "green";
+        });
+
+        button.addEventListener("mouseout", function () {
+          this.style.backgroundColor = "#333333";
+        });
+      });
+      document
+        .getElementById("nav-toggle")
+        .addEventListener("click", function () {
+          this.classList.toggle("active");
+          document.getElementById("nav").classList.toggle("active");
+        });
+      // Function to handle variant button clicks
+      function handleVariantButtonClick(event) {
+        // Remove the "selected" class from all variant buttons
+        var variantButtons = document.querySelectorAll(".variant-button");
+        variantButtons.forEach(function (button) {
+          button.classList.remove("selected");
+        });
+        // Add the "selected" class to the clicked variant button
+        event.target.classList.add("selected");
+      }
+
+      // Add event listeners to variant buttons
+      var variantButtons = document.querySelectorAll(".variant-button");
+      variantButtons.forEach(function (button) {
+        button.addEventListener("click", handleVariantButtonClick);
+      });
+
+      // Function to handle size button clicks
+      function handleSizeButtonClick(event) {
+        // Remove the "selected" class from all size buttons
+        var sizeButtons = document.querySelectorAll(".Size-button");
+        sizeButtons.forEach(function (button) {
+          button.classList.remove("selected");
+        });
+        // Add the "selected" class to the clicked size button
+        event.target.classList.add("selected");
+      }
+
+      // Add event listeners to size buttons
+      var sizeButtons = document.querySelectorAll(".Size-button");
+      sizeButtons.forEach(function (button) {
+        button.addEventListener("click", handleSizeButtonClick);
+      });
+      // Select the "Add to Cart" button
+      var addToCartButton = document.getElementById("addToCartButton");
+
+      // Add a click event listener to the "Add to Cart" button
+      addToCartButton.addEventListener("click", function (event) {
+        // Prevent the default behavior (page redirect)
+        event.preventDefault();
+
+        // Call the addToCart function
+        addToCart();
+      });
+
+      // Your existing addToCart function
+      function addToCart() {
+        // Get the selected quantity
+        var quantity = document.getElementById("quantity").value;
+
+        // You can perform additional logic here, such as adding the product to a cart object or making an API call to add the product to the cart
+
+        // For demonstration purposes, let's alert the user that the product has been added to the cart
+        alert("Product added to cart. Quantity: " + quantity);
+
+        // You can add your custom logic here for updating the cart UI or performing any other action
+      } // Function to show reviews and hide specifications
+      function showReviews() {
+        document.getElementById("reviews").style.display = "block";
+        document.getElementById("specifications").style.display = "none";
+        document.querySelector(".button.active").classList.remove("active");
+        document.querySelectorAll(".button")[0].classList.add("active");
+      }
+
+      // Function to show specifications and hide reviews
+      function showSpecifications() {
+        document.getElementById("reviews").style.display = "none";
+        document.getElementById("specifications").style.display = "block";
+        document.querySelector(".button.active").classList.remove("active");
+        document.querySelectorAll(".button")[1].classList.add("active");
+      }
+
+      // Function to update star rating
+      function setRating(rating) {
+        // Clear previous rating
+        document.querySelectorAll(".star").forEach(function (element) {
+          element.classList.remove("fa", "fa-star");
+          element.classList.add("far", "fa-star");
+        });
+
+        // Set new rating
+        for (let i = 0; i < rating; i++) {
+          document.getElementById("star" + i).classList.remove("far");
+          document.getElementById("star" + i).classList.add("fa");
+        }
+      }
+      function submitReview() {
+        const comment = document.getElementById("comment").value;
+        const rating = document.querySelectorAll(".star.fa").length;
+
+        // Clear previous rating and comment
+        document.getElementById("comment").value = "";
+        setRating(0);
+
+        // Append new review to existing reviews
+        const existingReviews = document.getElementById("existingReviews");
+        const newReview = document.createElement("div");
+        newReview.innerHTML = `<p><strong>Rating:</strong> ${rating} stars</p><p><strong>Comment:</strong> ${comment}</p>`;
+        existingReviews.appendChild(newReview);
+      }
+
+      // Function to update star rating
+      function setRating(rating) {
+        // Clear previous rating
+        document.querySelectorAll(".star").forEach(function (element) {
+          element.classList.remove("fa", "fa-star");
+          element.classList.add("far", "fa-star");
+        });
+
+        // Set new rating
+        for (let i = 0; i < rating; i++) {
+          document.getElementById("star" + (i + 1)).classList.remove("far");
+          document.getElementById("star" + (i + 1)).classList.add("fa");
+        }
+      }
+
+      // Initialize star rating
+      document.addEventListener("DOMContentLoaded", function () {
+        const starsContainer = document.querySelector(".stars");
+        for (let i = 1; i <= 5; i++) {
+          const star = document.createElement("span");
+          star.id = "star" + i;
+          star.classList.add("star", "far", "fa-star");
+          star.addEventListener("click", function () {
+            setRating(i);
+          });
+          starsContainer.appendChild(star);
+        }
+      });
+
+      document.addEventListener("DOMContentLoaded", function () {
+        const slides = document.getElementsByClassName("carousel-item");
+        const totalSlides = slides.length;
+
+        for (let i = 0; i < totalSlides; i++) {
+          if (i >= 4) {
+            slides[i].style.display = "none";
+          }
+        }
+      });
+
+      document.addEventListener("DOMContentLoaded", function () {
+        const slides = document.getElementsByClassName("carousel-item");
+        const totalSlides = slides.length;
+
+        // Hide all slides except the first four
+        for (let i = 0; i < totalSlides; i++) {
+          if (i >= 4) {
+            slides[i].style.display = "none";
+          }
+        }
+      });
+
+      let slideIndex = 0;
+
+      function moveSlide(n) {
+        const slides = document.getElementsByClassName("carousel-item");
+        const totalSlides = slides.length;
+
+        // Update the slideIndex
+        slideIndex += n;
+
+        // Loop slideIndex if it goes beyond the total number of slides
+        if (slideIndex >= totalSlides) {
+          slideIndex = 0;
+        }
+        if (slideIndex < 0) {
+          slideIndex = totalSlides - 1;
+        }
+
+        // Hide all slides
+        for (let i = 0; i < totalSlides; i++) {
+          slides[i].style.display = "none";
+        }
+
+        // Show four slides starting from slideIndex
+        for (let i = slideIndex; i < slideIndex + 4; i++) {
+          const adjustedIndex = i % totalSlides; // Handle looping back to the beginning
+          slides[adjustedIndex].style.display = "block";
+        }
+      }
+    </script>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+  </body>
 </html>

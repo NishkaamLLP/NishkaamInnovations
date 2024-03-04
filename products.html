@@ -258,7 +258,52 @@
   .featured-product .view-product:hover {
     background-color: #0056b3;
   }
-  
+  /* Add a media query for screens smaller than 768px */
+@media only screen and (max-width: 768px) {
+  .product-container {
+    flex-direction: column; /* Stack elements vertically on small screens */
+    /* Center align elements */
+  }
+
+  .product-image {
+    width: 100%; 
+    max-height: none; 
+  }
+
+  .product-description {
+    width: 100%; 
+    padding: 0; 
+    text-align: center; 
+    margin-top: 20px; 
+  }
+
+  .tags {
+    margin-top: 20px; 
+    text-align: center; 
+  }
+
+  .tag-button, .variant-button, .Size-button {
+    margin: 5px; 
+  }
+
+  .share-icons {
+    width: 100%; 
+    margin-top: 20px; 
+  }
+
+  .share-icons h3 {
+    text-align: center; 
+  }
+
+  .featured-products {
+    margin-top: 20px; 
+  }
+
+  .carousel-item {
+    flex: 0 0 50%; 
+  }
+}
+
   
   </style>
     <script src="https://kit.fontawesome.com/3b4d628af1.js" crossorigin="anonymous"></script>

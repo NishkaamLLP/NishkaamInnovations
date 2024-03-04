@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Login-page</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <script src="/js/login.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, Helvetica, sans-serif;
+        background-image: linear-gradient(
+          to bottom,
+          #c6f6c683,
+          #ffffc674,
+          #fd9bfd52
+        );
+        height: max-content;
+      }
+
+      form {
+        width: 90%;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        padding: 5px;
+      }
+
+      /* Full-width inputs */
+      input[type="text"],
+      input[type="password"],
+      input[type="email"] {
+        width: 100%;
+        padding: 12px;
+        margin: 8px;
+        display: inline-block;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+        border-radius: 7px;
+      }
+      label {
+        margin: 8px;
+        display: inline-block;
+      }
+      /* placeholder  */
+      input[type="text"]::placeholder,
+      input[type="email"]::placeholder,
+      input[type="password"]::placeholder {
+        color: #04aa6d;
+        font-style: italic;
+        font-size: 1rem;
+      }
+      /* Set a style for all buttons */
+      button {
+        background-color: #04aa6d;
+        color: white;
+        padding: 14px 20px;
+        border: none;
+        cursor: pointer;
+        width: 100%;
+        border-radius: 10px;
+      }
+      /* Add a hover effect for buttons */
+      button:hover {
+        background-color: green;
+        font-size: 1.4rem;
+      }
+      .img-section-showing-products {
+        position: relative;
+        width: 70%;
+      }
+
+      /* Add a hover effect for buttons */
+      button:hover {
+        opacity: 0.8;
+      }
+
+      /* Add padding to containers */
+      .container {
+        padding: 8px;
+        align-items: center;
+      }
+
+      .container h1 {
+        text-align: center;
+        color: #04aa6d;
+      }
+
+      .or {
+        display: flex;
+      }
+
+      hr {
+        width: 45%;
+        height: 0;
+      }
+
+      /* The "Forgot password" text */
+      span.psw {
+        float: right;
+        padding-top: 16px;
+      }
+      .errormessage {
+        color: red;
+        border-radius: 5px;
+        padding: 0.4rem;
+        text-align: center;
+        font-size: 1rem;
+        text-transform: capitalize;
+      }
+
+      .form-section {
+        width: auto;
+        height: 100%;
+        background-image: linear-gradient(to bottom, #c6f6c645, #ffffc61a);
+        display: flex;
+        justify-content: center;
+      }
+      @media only screen and (max-width: 600px) {
+        .form-section {
+          width: 100% !important;
+          margin: 0 !important;
+          padding: 0 !important;
+        }
+        form {
+          margin-bottom: 20% !important;
+          padding: 5px !important;
+          margin: 0 !important;
+        }
+        h1 {
+          font-size: 1.5rem;
+        }
+        .img-section-showing-products {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <main style="width: 100%; display: flex; justify-content: center">
+      <div class="form-section">
+        <form  method="post" autocomplete="off" onsubmit="validateForm(event)">
+          <h1
+            style="
+              text-align: left;
+              color: green;
+              line-height: 60px;
+              margin-left: 15px;
+              text-transform: uppercase;
+            "
+          >
+            Nishkaam Innovations.
+          </h1>
+          <div id="errordiv" class="errormessage">
+          
+          </div>
+          <div class="container">
+            <label for="email"><b>Email</b></label>
+            <input
+              type="email"
+              autocomplete="off"
+              placeholder="Enter your email "
+              name="email"
+              id="email"
+              title="you should enter a valid email address that you used when signing up"
+              required
+            />
+
+            <label for="psw"><b>Password</b></label>
+            <input
+              type="password"
+              placeholder="Enter Password"
+              name="psw"
+              autocomplete="off"
+              title="Use the password you used when signing up"
+              required
+            />
+
+            <button
+              type="submit"
+              style="display: flex; justify-content: center; font-size: 15px"
+            >
+              Login
+            </button>
+          </div>
+
+          <div class="container" style="font-size: 1.2rem; text-align: center">
+            <span
+              >Forgot your password?
+              <a href="forgot-password.html" target="_self">Reset Now</a></span
+            >
+          </div>
+
+          <div class="sign-up">
+            <p>
+              Don&#39;t have an account?
+              <a href="sign-up.html" target="_self">Sign up Now</a>
+            </p>
+          </div>
+          <div class="or">
+            <hr />
+            <span>Or</span>
+            <hr />
+          </div>
+          <div
+            class="social-media"
+            style="
+              margin: 0;
+              display: flex;
+              flex-direction: row;
+              gap: 5px;
+              justify-content: center;
+            "
+          >
+            <button
+              style="
+                background-color: #f7f4f4;
+                border: 1px solid rgba(43, 42, 42, 0.87);
+                display: flexbox;
+                margin: auto;
+                margin-top: 15px;
+              "
+            >
+              <i
+                class="fa fa-google"
+                style="font-size: 20px; color: rgb(39, 38, 38)"
+              ></i>
+              <span style="font-size: 16px; margin: 10px; color: #0c0c0cce">
+                Continue with google
+              </span>
+            </button>
+            <button
+              style="
+                background-color: #f7f4f4;
+                color: black;
+                border: 1px solid black;
+                margin: auto;
+                margin-top: 15px;
+                margin-bottom: 15px;
+              "
+            >
+              <i class="fa fa-facebook" style="font-size: 20px"></i>
+              <span style="font-size: 16px; color: #0c0c0cce">
+                Continue with Facebook</span
+              >
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <div class="img-section-showing-products">
+        <img
+          src="/images/products.png"
+          alt="products image"
+          width="100%"
+          loading="lazy"
+        />
+      </div>
+    </main>
+  </body>
+</html>

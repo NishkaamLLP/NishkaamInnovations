@@ -22,8 +22,13 @@
   margin-top: 100px;
 }
 
+<<<<<<< HEAD
 .social-icon ,
 .menu{
+=======
+.social-icon,
+.menu {
+>>>>>>> d4ec444f83c6a29d894dce311074d1f16784e2b3
   position: relative;
   display: flex;
   justify-content: center;

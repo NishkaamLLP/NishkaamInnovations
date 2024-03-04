@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Search Icon</title>
+<style>
+  .search-container {
+    position: relative;
+    display: inline-block;
+    pointer:cursor;
+  }
+  
+  .search-box {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 200px; /* Adjust width as needed */
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-top: none;
+    padding: 10px;
+    z-index: 1;
+  }
+  
+  .search-box input[type="text"] {
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+  }
+</style>
+</head>
+<body>
+
+    <div class="search-container">
+        <span id="search-icon"><img src="images/search.png"></span>
+        <div class="search-box" id="search-box">
+          <input type="text" id="search-input" placeholder="Search...">
+        </div>
+      </div>
+      
+<script>
+document.getElementById('search-icon').addEventListener('click', function() {
+  var searchBox = document.getElementById('search-box');
+  if (searchBox.style.display === 'none') {
+    searchBox.style.display = 'block';
+  } else {
+    searchBox.style.display = 'none';
+  }
+});
+
+document.getElementById('search-input').addEventListener('input', function() {
+  var searchText = this.value;
+  var content = document.body.innerText;
+  var highlightedContent = content.replace(new RegExp(searchText, 'gi'), function(match) {
+    return '<span style="background-color: yellow;">' + match + '</span>';
+  });
+  document.body.innerHTML = highlightedContent;
+});
+</script>
+
+</body>
+</html>

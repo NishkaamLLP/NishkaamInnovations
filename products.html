@@ -661,6 +661,12 @@
         // Add the "selected" class to the clicked variant button
         event.target.classList.add("selected");
       }
+      function changeProductImage(imageSrc) {
+        // Get the product image element
+        var productImage = document.querySelector('.product-container img');
+        // Change the source of the product image
+        productImage.src = imageSrc;
+      }
 
       // Add event listeners to variant buttons
       var variantButtons = document.querySelectorAll(".variant-button");

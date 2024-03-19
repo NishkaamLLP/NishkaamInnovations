@@ -213,13 +213,27 @@
         font-size: 25px;
       }
     }
-   
+    
+    #canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1; /* Ensure the canvas is above other content */
+  }
+
+  .section-container {
+      position: relative; /* Ensure the content is positioned relative to its parent */
+      z-index: 2; /* Ensure the content is above the canvas */
+  }
   </style>
   <script src="https://kit.fontawesome.com/3b4d628af1.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
-
+  <canvas id="canvas"></canvas>
   <div class="header">
     <div class="brand-container">
       <div class="logo">
@@ -257,7 +271,7 @@
     
     
   </nav>
-
+ 
     <div class="section-container">
 
     <div class="description-section" >
@@ -349,31 +363,119 @@
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
 <script>
-   
-    function handleSearch() {
-      var searchTerm = document.querySelector('input[type="text"]').value;
-      alert('Searching for: ' + searchTerm);
+  // Function to handle search button click
+  function handleSearch() {
+    var searchTerm = document.querySelector('input[type="text"]').value;
+    alert('Searching for: ' + searchTerm);
+  }
+  
+  // Add event listener for search button click
+  document.querySelector('button').addEventListener('click', handleSearch);
+  
+  // Add event listeners for hover effects on buttons
+  document.querySelectorAll('.hover-button').forEach(button => {
+    button.addEventListener('mouseover', function () {
+      this.style.backgroundColor = 'green';
+    });
+    button.addEventListener('mouseout', function () {
+      this.style.backgroundColor = '#333333';
+    });
+  });
+  
+  // Function to toggle navigation menu on mobile view
+  document.getElementById("nav-toggle").addEventListener("click", function () {
+    this.classList.toggle("active");
+    document.getElementById("nav").classList.toggle("active");     
+  });
+  
+  // Confetti effect
+  window.addEventListener('load', function() {
+    let W = window.innerWidth;
+    let H = window.innerHeight;
+    const canvas = document.getElementById("canvas");
+    const context = canvas.getContext("2d");
+    const maxConfettis = 150;
+    const particles = [];
+    let startTime = performance.now(); // Record the start time
 
+    const possibleColors = [
+      "DodgerBlue", "OliveDrab", "Gold", "Pink", "SlateBlue",
+      "LightBlue", "Gold", "Violet", "PaleGreen", "SteelBlue",
+      "SandyBrown", "Chocolate", "Crimson"
+    ];
+
+    function randomFromTo(from, to) {
+      return Math.floor(Math.random() * (to - from + 1) + from);
     }
-  
-    document.querySelector('button').addEventListener('click', handleSearch);
-    document.querySelectorAll('.hover-button').forEach(button => {
-      button.addEventListener('mouseover', function () {
-        this.style.backgroundColor = 'green';
-      });
-  
-      button.addEventListener('mouseout', function () {
-        this.style.backgroundColor = '#333333';
-      });
-    });
-    document
-    .getElementById("nav-toggle")
-    .addEventListener("click", function () {
-      this.classList.toggle("active");
-      document.getElementById("nav").classList.toggle("active");     
-    });
 
-  </script>
+    function confettiParticle() {
+      this.x = Math.random() * W;
+      this.y = Math.random() * H - H;
+      this.r = randomFromTo(11, 33);
+      this.d = Math.random() * maxConfettis + 11;
+      this.color = possibleColors[Math.floor(Math.random() * possibleColors.length)];
+      this.tilt = Math.floor(Math.random() * 33) - 11;
+      this.tiltAngleIncremental = Math.random() * 0.07 + 0.05;
+      this.tiltAngle = 0;
+
+      this.draw = function() {
+        context.beginPath();
+        context.lineWidth = this.r / 2;
+        context.strokeStyle = this.color;
+        context.moveTo(this.x + this.tilt + this.r / 3, this.y);
+        context.lineTo(this.x + this.tilt, this.y + this.tilt + this.r / 5);
+        return context.stroke();
+      };
+    }
+
+    function Draw(timestamp) {
+        let elapsed = timestamp - startTime; // Calculate elapsed time
+        if (elapsed < 6000) { // Check if less than 6 seconds
+            requestAnimationFrame(Draw);
+            context.clearRect(0, 0, W, window.innerHeight);
+
+            for (var i = 0; i < maxConfettis; i++) {
+                particles[i].draw();
+            }
+
+            let particle = {};
+            let remainingFlakes = 0;
+            for (var i = 0; i < maxConfettis; i++) {
+                particle = particles[i];
+
+                particle.tiltAngle += particle.tiltAngleIncremental;
+                particle.y += (Math.cos(particle.d) + 3 + particle.r / 2) / 2;
+                particle.tilt = Math.sin(particle.tiltAngle - i / 3) * 15;
+
+                if (particle.y <= H) remainingFlakes++;
+
+                if (particle.x > W + 30 || particle.x < -30 || particle.y > H) {
+                  particle.x = Math.random() * W;
+                  particle.y = -30;
+                  particle.tilt = Math.floor(Math.random() * 10) - 20;
+                }
+            }
+        } else {
+            context.clearRect(0, 0, W, H); // Clear the canvas
+        }
+    }
+
+    // Generate confetti particles
+    for (var i = 0; i < maxConfettis; i++) {
+      particles.push(new confettiParticle());
+    }
+
+    // Set canvas size
+    canvas.width = W;
+    canvas.height = H;
+
+    // Start the animation after one second
+    setTimeout(function() {
+        requestAnimationFrame(Draw);
+    }, 500); // 1000 milliseconds = 1 second
+});
+
+    </script>
   
 </body>
 

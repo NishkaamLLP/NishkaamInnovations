@@ -50,7 +50,7 @@
     .slider{
       height:500px ;
       width:500px ;
-      background:url(images/1.jpeg);
+      background:url(images/1.png);
       margin: 0 100px auto;
       align-items: center;
       animation: slide 10s infinite;
@@ -70,7 +70,7 @@
         background: url(images/5.png);
       }
       100%{
-        background: url(images/1.jpeg);
+        background: url(images/1.png);
       }
     }
     .rectangular-container {
@@ -430,7 +430,7 @@
 
     function Draw(timestamp) {
         let elapsed = timestamp - startTime; // Calculate elapsed time
-        if (elapsed < 6000) { // Check if less than 6 seconds
+        if (elapsed < 4000) { // Check if less than 4 seconds
             requestAnimationFrame(Draw);
             context.clearRect(0, 0, W, window.innerHeight);
 

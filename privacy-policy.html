@@ -4,217 +4,112 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Privacy and policy</title>
-  <style>
-    body {
-        font-family: 'Arial', sans-serif;
-        margin: 2vw;
-        padding: 0;
-        text-align: center;
-      }
-  
-      .header {
-        width:auto;
-        background-color: #ffffff;
-        text-align: center;
-        flex-wrap: wrap;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 1em;
-        margin-top: -50px;
-      }
-  
-      .brand-container {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 1em;
-      }
-  
-      .logo {
-        display: inline-block;
-        margin-right: 20px;
-      }
-      
-  
-      .search-container {
-        text-align: center;
-    }
-  
-    .search-box {
-      width: 600px;
-      padding: 10px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      outline: none;
-      font-size: 16px;
-      display: inline-block; 
-      margin-right: 10px; 
-    }
-  
-    .search-button {
-      background-color: #4CAF50;
-      color: white;
-      border: none;
-      padding: 10px 20px;
-      border-radius: 5px;
-      cursor: pointer;
-      font-size: 16px;
-    }
-    .icon {
-      padding: 30px;
-      margin: right 0px;;   
-    }
-    .icon i {
-      font-size: 30px 
-    }
-    .icon a{
-      text-decoration: none;
-      color:inherit;
-    }
-    .icon a:first-child {
-      margin-right: 10px; 
-    }
-    .nav-option {
-      display: inline-block;
-      text-decoration: none;
-      color: #333;
-      font-size: large;
-      font-weight: bold;
-      margin-right: 1em; /* Adjust spacing between navigation links */
-      font-size: 1em;
-    }
-    .nav-option:hover {
-      color: gold; 
-    }
-    footer {
-      background-image: url("images/footer.png");
-      background-size: cover;
-      color: #fff;
-      padding: 2rem 0;
-      margin-top: auto;
-      display: flex;
-      align-self: flex-start;
-      align-items: flex-start;
-      flex-wrap: wrap;
-    }
-    
-    .footer-component {
-      flex: 1; /* Each component will take equal width */
-      box-sizing: border-box;
-      padding: 0 20px; /* Adjust padding as needed */
-    }
-    
-    /* Add media query for responsiveness */
-    @media (max-width: 768px) {
-      .footer-component {
-        flex: 1 0 100%; /* Components will stack on top of each other on small screens */
-      }
-    }
-    
-</style>
+  <title>Privacy-Policy</title>
     <script src="https://kit.fontawesome.com/3b4d628af1.js" crossorigin="anonymous"></script>
 
+    <link rel="stylesheet" href="header.css" />
+    <link rel="stylesheet" href="footer.css" />
     </head>
-
 <body>
 
   <div class="header">
     <div class="brand-container">
       <div class="logo">
-        <a href=index.html><img src="images/logo.png" alt="Logo" width="250" height="150"></a>
+        <a href=index.html><img src="images/logo_new.png" alt="Logo" width="150" height="50"></a>
       </div>
       <div class="search-container">
         <input type="text" class="search-box" placeholder="Search...">
         <button class="search-button">Search</button>
       </div>
-    </div>
-    <div class="icon">
-      <a href="user.html">
-       <i class="fa-regular fa-user" ></i>
-      </a> 
-       <a href="cart.html">
-         <i class="fa-solid fa-bag-shopping"></i>
-       </a> 
+      <div class="icon">
+        <span id="search-icon">
+          <img src="images/search.png" height="35" width="35"></i>
+        </span>
+        <a href="user.html"><img src="images/user.png" height="35" width="35"></a>
+           <a href="cart.html">
+            <img src="images/cart.png" height="35" width="35"></i>
+           </a>   
       </div>
-   
-  </div>
-  <div class="navigation">
-    <a href="index.html" class="nav-option ">Home</a>
-    <a href="about_us.html" class="nav-option ">About Us</a>
-    <a href="achievements.html" class="nav-option">Achievements</a>
-    <a href="period_calculator.html" class="nav-option">Period Calculator</a>
-    <a href="blogs.html" class="nav-option">Blogs</a>
-    <a href="products.html" class="nav-option">Product</a>
-    <a href="contact_us.html" class="nav-option">Contact Us</a>
+    </div>
+
 
   </div>
-<hr>
+  <nav id="nav">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about_us.html">About Us</a></li>
+      <li><a href="achievements.html" class="active">Achievements</a></li>
+      <li><a href="period_calculator.html">Periodic Calculator</a></li>
+      <li><a href="blogs.html">Blogs</a></li>
+      <li><a href="products.html">Product</a></li>
+      <li><a href="contact_us.html">Contact Us</a></li>
+    </ul>
+    <button id="nav-toggle" class="fa-solid fa-bars"></button>
+
+  </nav>
   
-  <hr>
-  <footer>
-    <!-- Nishkaam Section -->
-   <div style="flex: 1 1 0; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 16px; display: inline-flex; margin-left: 32px;">
-      <div style=" color: #658C4A; font-size: 20px; font-family: Inter; font-weight: 600; line-height: 28px; word-wrap: break-word; margin-bottom: 8px;">Nishkaam</div>
-    <div style=" height: 88px; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 8px; display: flex">
-      <div style="color: #333333; font-size: 16px; font-family: Inter; font-weight: 600; line-height: 24px; word-wrap: break-word">Marwadi University Campus</div>
-      <div style="color: #333333; font-size: 16px; font-family: Inter; font-weight: 600; line-height: 24px; word-wrap: break-word">Rajkot-Morbi Highway ,Gujarat</div>
-      <div style="color: #333333; font-size: 16px; font-family: Inter; font-weight: 600; line-height: 24px; word-wrap: break-word">+91 91738 01621</div>
+  <footer class="footer">
+    <div class="waves">
+      <div class="wave" id="wave1"></div>
+      <div class="wave" id="wave2"></div>
+      <div class="wave" id="wave3"></div>
+      <div class="wave" id="wave4"></div>
     </div>
-</div>
+    <ul class="social-icon">
+      <li class="social-icon__item"><a class="social-icon__link" href="#">
+          <ion-icon name="logo-facebook"></ion-icon>
+        </a></li>
+      <li class="social-icon__item"><a class="social-icon__link" href="#">
+          <ion-icon name="logo-twitter"></ion-icon>
+        </a></li>
+      <li class="social-icon__item"><a class="social-icon__link" href="#">
+          <ion-icon name="logo-linkedin"></ion-icon>
+        </a></li>
+      <li class="social-icon__item"><a class="social-icon__link" href="#">
+          <ion-icon name="logo-instagram"></ion-icon>
+        </a></li>
+    </ul>
+    <ul class="menu">
+      <li class="menu__item"><a class="menu__link" href="shipping.html">Shipping</a></li>
+      <li class="menu__item"><a class="menu__link" href="returns.html">Returns</a></li>
+      <li class="menu__item"><a class="menu__link" href="privacy-policy.html">Privacy-Policy</a></li>
+      <li class="menu__item"><a class="menu__link" href="terms-of-use.html">Terms of Use</a></li>
+      <li class="menu__item"><a class="menu__link" href="Affiliates.html">Affilates</a></li>
+    </ul>
+    <p>&copy; 2024 Nishkaam . All Rights Reserved.</p>
+  </footer>
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
-  <!-- Product Categories Section -->
-<div style="flex: 1 1 0; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 16px; display: inline-flex">
-  <div style="color: #658C4A; font-size: 20px; font-family: Inter; font-weight: 600; line-height: 28px; word-wrap: break-word">Product Categories</div>
-  <div style="height: 216px; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 8px; display: flex">
-    <div style="font-size: 16px; font-family: Inter; font-weight: 600; line-height: 24px; word-wrap: break-word;"><a href="pads.html" style="text-decoration: none; color: black;">Pads</a></div>
-    <div style="font-size: 16px; font-family: Inter; font-weight: 600; line-height: 24px; word-wrap: break-word;"><a href="tissues.html" style="text-decoration: none; color: black;">Tissues</a></div>
-    <div style="font-size: 16px; font-family: Inter; font-weight: 600; line-height: 24px; word-wrap: break-word;"><a href="bags.html" style="text-decoration: none; color: black;">Bags</a></div>
-    <div style="font-size: 16px; font-family: Inter; font-weight: 600; line-height: 24px; word-wrap: break-word;"><a href="home-goods.html" style="text-decoration: none; color: black;">Home Goods</a></div>
-    <div style="font-size: 16px; font-family: Inter; font-weight: 600; line-height: 24px; word-wrap: break-word;"><a href="furniture.html" style="text-decoration: none; color: black;">Furniture</a></div>
-    <div style="font-size: 16px; font-family: Inter; font-weight: 600; line-height: 24px; word-wrap: break-word;"><a href="accessories.html" style="text-decoration: none; color: black;">Accessories</a></div>
-    <div style="font-size: 16px; font-family: Inter; font-weight: 600; line-height: 24px; word-wrap: break-word;"><a href="gift.html" style="text-decoration: none; color: black;">Gift</a></div>
-  </div>
-</div>
-<!-- Support Section -->
-<div style="flex: 1 1 0; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 16px; display: inline-flex">
-  <div style="color: #658C4A; font-size: 20px; font-family: Inter; font-weight: 600; line-height: 28px; word-wrap: break-word">Support</div>
-  <div style="height: 152px; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 8px; display: flex">
-    <div style="font-size: 16px; font-family: Inter; font-weight: 600; line-height: 24px; word-wrap: break-word;"><a href="shipping.html" style="text-decoration: none; color: black;">Shipping</a></div>
-    <div style="font-size: 16px; font-family: Inter; font-weight: 600; line-height: 24px; word-wrap: break-word;"><a href="returns.html" style="text-decoration: none; color: black;">Returns</a></div>
-    <div style="font-size: 16px; font-family: Inter; font-weight: 600; line-height: 24px; word-wrap: break-word;"><a href="privacy-policy.html" style="text-decoration: none; color: black;">Privacy Policy</a></div>
-    <div style="font-size: 16px; font-family: Inter; font-weight: 600; line-height: 24px; word-wrap: break-word;"><a href="terms-of-use.html" style="text-decoration: none; color: black;">Terms of Use</a></div>
-    <div style="font-size: 16px; font-family: Inter; font-weight: 600; line-height: 24px; word-wrap: break-word;"><a href="affiliates.html" style="text-decoration: none; color: black;">Affiliates</a></div>
-  </div>
-</div>
-
-
-  <!-- Location Section -->
-  <div style="width: 341px; height: 260px; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 16px; display: inline-flex">
-    <div style=" color: #658C4A; font-size: 20px; font-family: Inter; font-weight: 600; line-height: 28px; word-wrap: break-word">Location</div>
-    <div style=" height: 215px; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 8px; display: flex">
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3689.637273789306!2d70.79224057509602!3d22.367320979638393!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3959c972761ce515%3A0x3651e3fe1e9df4f8!2sMarwadi%20University!5e0!3m2!1sen!2sin!4v1706769068035!5m2!1sen!2sin" width="314" height="215px" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-    </div>
-  </div>
-</div>
-<hr>
-</footer>
-<hr>
-<div class="copyright">
-  <p style="align-self: flex-start;">© 2024 Nishkaam . All Rights Reserved.</p>
-</div>
 
 <script>
-   
-    function handleSearch() {
-      var searchTerm = document.querySelector('input[type="text"]').value;
-      alert('Searching for: ' + searchTerm);
+  function handleSearch() {
+    var searchTerm = document.querySelector('input[type="text"]').value;
+    alert('Searching for: ' + searchTerm);
 
-    }
-  
-    document.querySelector('button').addEventListener('click', handleSearch);
-  </script>
+  }
+
+  document.querySelector('button').addEventListener('click', handleSearch);
+  document.querySelectorAll('.hover-button').forEach(button => {
+    button.addEventListener('mouseover', function () {
+      this.style.backgroundColor = 'green';
+    });
+
+    button.addEventListener('mouseout', function () {
+      this.style.backgroundColor = '#333333';
+    });
+  });
+  document
+  .getElementById("nav-toggle")
+  .addEventListener("click", function () {
+    this.classList.toggle("active");
+    document.getElementById("nav").classList.toggle("active");     
+
+
+  });
+
+</script>    
+
   
 </body>
 

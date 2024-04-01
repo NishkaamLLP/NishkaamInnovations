@@ -174,6 +174,7 @@
       margin-top: 20px;
       border: 1px solid black;
       font-size: 16px;
+      cursor: pointer;
     }
     .container {
       max-width: 800px;
@@ -370,7 +371,7 @@
       <button id="nav-toggle" class="fa-solid fa-bars"></button>
     </nav>
 
-    <div class="product-container">
+    <div class="product-container" class="product">
       <div>
         <img src="images/pad1.jpg" alt="Product Image" />
         <div class="product-views" id="product-views">
@@ -434,12 +435,12 @@
         </div>
       </div>
       <div class="product-description">
-        <h2>Description</h2>
-        <p>
+        <h2 id="product-name">Pads</h2>
+        <p id="product-desc" >
             Ditch the plastic, embrace nature! Our ultra-soft, 100% biodegradable pads are made from renewable wheat & rice straw. Gentle on skin, tough on leaks, they vanish in weeks, not centuries. Choose comfort, choose Earth. Switch today!
         </p>
         <div>
-          <span style="font-size: 1.5em">Price: $50 </span
+          <span style="font-size: 1.5em" id="product-price">Price: $50 </span
           ><span
             style="text-decoration: line-through; font: size 1em; color: grey"
             >$60</span
@@ -447,14 +448,14 @@
         </div>
         <div>
           <h2>Variant</h2>
-          <button class="variant-button selected">Regular</button>
-          <button class="variant-button">Night</button>
+          <button id="regular-variant" class="variant-button selected">Regular</button>
+          <button id="night-variant" class="variant-button">Night</button>
         </div>
         <div>
           <h2>Size</h2>
-          <button class="Size-button selected">M</button>
-          <button class="Size-button">L</button>
-          <button class="Size-button">XL</button>
+          <button id="medium-size" class="Size-button selected">M</button>
+          <button id="large-size" class="Size-button">L</button>
+          <button  id="x-large-size" class="Size-button">XL</button>
         </div>
         <br />
         <div>
@@ -472,8 +473,8 @@
             <option value="10">10</option>
           </select>
         </div>
-        <a href="cart.html" class="buy-button" onclick="addToCart()">Buy Now</a>
-        <button class="add-to-cart-button" id="addToCartButton">
+        <a href="cart.html" class="buy-button" >Buy Now</a>
+        <button class="add-to-cart-button" id="addToCartButton" onclick="addToCart()">
           <i class="fas fa-shopping-cart"></i> Add to Cart
         </button>
       </div>
@@ -687,30 +688,51 @@
       sizeButtons.forEach(function (button) {
         button.addEventListener("click", handleSizeButtonClick);
       });
-      // Select the "Add to Cart" button
-      var addToCartButton = document.getElementById("addToCartButton");
-
-      // Add a click event listener to the "Add to Cart" button
-      addToCartButton.addEventListener("click", function (event) {
-        // Prevent the default behavior (page redirect)
-        event.preventDefault();
-
-        // Call the addToCart function
-        addToCart();
-      });
-
-      // Your existing addToCart function
       function addToCart() {
-        // Get the selected quantity
-        var quantity = document.getElementById("quantity").value;
+        // Get product details
+        let productName = document.getElementById('product-name').innerText;       
+        let productPrice = parseFloat(document.getElementById('product-price').innerText.split('$')[1]); // Extracting the price without the "$" sign and converting to float
+        let productVariant = document.querySelector('.variant-button.selected').innerText;
+        let productSize = document.querySelector('.Size-button.selected').innerText;
+        let productQuantity = parseInt(document.getElementById('quantity').value); // Converting quantity to integer
+        let productImage = document.querySelector('.product-container img').src; // Get the image URL
+      
+        // Calculate total price based on quantity
+        let totalPrice = productPrice * productQuantity;
+      
+        // Construct metadata object
+        let productMetadata = {
+          name: productName,
+          price: totalPrice, // Update price to reflect total price
+          variant: productVariant,
+          size: productSize,
+          quantity: productQuantity,
+          image: productImage // Include the image URL
+        };
+      
+        // Check if sessionStorage is available
+        if (typeof(Storage) !== "undefined") {
+          // Get cart from sessionStorage or initialize an empty array
+          let cart = JSON.parse(sessionStorage.getItem('cart')) || [];
+      
+          // Add the product metadata to the cart array
+          cart.push(productMetadata);
+      
+          // Save the updated cart to sessionStorage
+          sessionStorage.setItem('cart', JSON.stringify(cart));
+      
+          // Optionally, display a confirmation message
+          alert('Product added to cart successfully!');
+        } else {
+          // If sessionStorage is not available, display an error message
+          alert('Sorry, your browser does not support sessionStorage.');
+        }
+    }
+    
+      
 
-        // You can perform additional logic here, such as adding the product to a cart object or making an API call to add the product to the cart
 
-        // For demonstration purposes, let's alert the user that the product has been added to the cart
-        alert("Product added to cart. Quantity: " + quantity);
-
-        // You can add your custom logic here for updating the cart UI or performing any other action
-      } // Function to show reviews and hide specifications
+      // Function to show reviews and hide specifications
       function showReviews() {
         document.getElementById("reviews").style.display = "block";
         document.getElementById("specifications").style.display = "none";

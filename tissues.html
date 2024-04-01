@@ -838,6 +838,32 @@
         }
       }
 
+      // Define the cart data structure
+      let cart = [];
+
+      function addToCart() {
+        // Check if sessionStorage is available
+        if (typeof(Storage) !== "undefined") {
+          // If available, get the cart from sessionStorage or create a new one
+          let cart = JSON.parse(sessionStorage.getItem('cart')) || [];
+      
+          // Get the selected quantity from the dropdown
+          let quantity = parseInt(document.getElementById('quantity').value);
+      
+          // Add product with quantity to cart (in a real scenario, you'd probably want to add the actual product details)
+          cart.push({name: 'Tissues', price: 50, quantity: quantity});
+      
+          // Update cart in sessionStorage
+          sessionStorage.setItem('cart', JSON.stringify(cart));
+      
+          // Notify user
+          alert('Product added to cart!');
+        } else {
+          alert('Sorry, your browser does not support sessionStorage.');
+        }
+      }
+      
+      
       
       
     </script>

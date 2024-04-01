@@ -1,116 +1,385 @@
 <!DOCTYPE html>
 <html lang>
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cart</title>
-    <script src="https://kit.fontawesome.com/3b4d628af1.js" crossorigin="anonymous"></script>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cart</title>
+    <script
+      src="https://kit.fontawesome.com/3b4d628af1.js"
+      crossorigin="anonymous"
+    ></script>
 
     <link rel="stylesheet" href="header.css" />
     <link rel="stylesheet" href="footer.css" />
-    </head>
-<body>
+    <style>
+      #cart {
+        margin: 20px;
+        padding: 20px;
+        background-color: #f9f9f9;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+      }
 
-  <div class="header">
-    <div class="brand-container">
-      <div class="logo">
-        <a href=index.html><img src="images/logo_new.png" alt="Logo" width="150" height="50"></a>
+      /* Cart items */
+      
+      .product-added {
+        display: flex;
+        background-color: aqua;
+        padding: 1rem;
+        margin: 1rem;
+        border-radius: 5px;
+        color: white;
+      }
+      .cart-section {
+        position: relative;
+        display: flex;
+
+        margin: 0.6rem;
+        padding: 0.6rem;
+        width: 100%;
+      }
+      .left-part {
+        position: relative;
+        width: 60%;
+        height: fit-content;
+        background-color: transparent;
+      }
+      .right-part {
+        width: 40%;
+        display: flex;
+        flex-direction: column;
+        justify-content:space-around;
+        align-items: center;
+      }
+      .header-left-part {
+        background-color: white;
+        height: 50px;
+        display: flex;
+        padding: 0.6rem;
+        justify-content: space-between;
+        margin-bottom: 1rem;
+      }
+      .footer-left-part {
+        background-color: white;
+        height: 50px;
+        display: flex;
+        padding: 0.6rem;
+        justify-content: end;
+        box-shadow: 2px 2px 4px 2px white;
+      }
+      .checkout {
+        margin-top: 20px;
+        text-align: right;
+      }
+      .product-container {
+        display: flex;
+        flex-wrap: wrap;
+        margin-bottom: 20px;
+      }
+
+      .product-container .product-image {
+        width: 30%;
+        margin-right: 0px;
+      }
+
+      .product-container .product-details {
+        width: 70%;
+      }
+
+      .product-container .product-details h2 {
+        margin-top: 0;
+        margin-bottom: 10px;
+      }
+      .left-part-body {
+        background-color: white;
+      }
+      .product-container .product-details p {
+        color: red;
+        margin-bottom: 10px;
+      }
+
+      .product-container .save-button,
+      .product-container .remove-button {
+        margin-right: 10px;
+        padding: 5px 10px;
+        background-color: #333333;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.2s;
+      }
+
+      .product-container .save-button:hover,
+      .product-container .remove-button:hover {
+        background-color: #555555;
+      }
+
+      .product-container .quantity-selector {
+        display: flex;
+        margin-bottom: 10px;
+      }
+
+      .product-container .quantity-selector button {
+        padding: 5px 10px;
+        background-color: #333333;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.2s;
+      }
+
+      .product-container .quantity-selector button:hover {
+        background-color: #555555;
+      }
+
+      .product-container .quantity-selector input[type="number"] {
+        width: 50px;
+        text-align: center;
+        margin: 0 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <div class="brand-container">
+        <div class="logo">
+          <a href="index.html"
+            ><img src="images/logo_new.png" alt="Logo" width="150" height="50"
+          /></a>
+        </div>
+        <div class="search-container">
+          <input type="text" class="search-box" placeholder="Search..." />
+          <button class="search-button">Search</button>
+        </div>
+        <div class="icon">
+          <span id="search-icon">
+            <img src="images/search.png" height="35" width="35" />
+          </span>
+          <a href="user.html"
+            ><img src="images/user.png" height="35" width="35"
+          /></a>
+          <a href="cart.html">
+            <img src="images/cart.png" height="35" width="35" />
+          </a>
+        </div>
       </div>
-      <div class="search-container">
-        <input type="text" class="search-box" placeholder="Search...">
-        <button class="search-button">Search</button>
+    </div>
+    <nav id="nav">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about_us.html">About Us</a></li>
+        <li><a href="achievements.html" class="active">Achievements</a></li>
+        <li><a href="period_calculator.html">Periodic Calculator</a></li>
+        <li><a href="blogs.html">Blogs</a></li>
+        <li><a href="products.html">Product</a></li>
+        <li><a href="contact_us.html">Contact Us</a></li>
+      </ul>
+      <button id="nav-toggle" class="fa-solid fa-bars"></button>
+    </nav>
+    <h1>Cart</h1>
+    <div class="cart-section">
+      <div class="left-part">
+        <div class="header-left-part">
+          <h2>From saved address</h2>
+          <button>Enter the dilivery Pincode</button>
+        </div>
+        <div class="left-part-body" id="cart">
+         
+          <div class="footer-left-part">
+            <button>PLACE ORDER</button>
+          </div>
+        </div>
       </div>
-      <div class="icon">
-        <span id="search-icon">
-          <img src="images/search.png" height="35" width="35"></i>
-        </span>
-        <a href="user.html"><img src="images/user.png" height="35" width="35"></a>
-           <a href="cart.html">
-            <img src="images/cart.png" height="35" width="35"></i>
-           </a>   
+      <div class="checkout right-part" id="cart">
+        <p>Total: $<span id="total"></span></p>
+        <table style="width: 100%;">
+          <tr>
+          <td>Sub-Total</td>
+          <td>$50</td>
+          </tr>
+          <tr>
+          <td>Shipping Charge</td>
+          <td>$5</td>
+          </tr>
+          <tr>
+            <td>Discount</td>
+            <td>-$5</td>
+          </tr>
+          <tr>
+            <td>Coupons Discount</td>
+            <td>-$5</td>
+          </tr>
+          
+          <tr>
+            <td>Total</td>
+            <td>$45</td>
+          </tr>
+        </table>
+        <button onclick="checkout()">Checkout</button>
       </div>
     </div>
 
+    <footer class="footer">
+      <div class="waves">
+        <div class="wave" id="wave1"></div>
+        <div class="wave" id="wave2"></div>
+        <div class="wave" id="wave3"></div>
+        <div class="wave" id="wave4"></div>
+      </div>
+      <ul class="social-icon">
+        <li class="social-icon__item">
+          <a class="social-icon__link" href="#">
+            <ion-icon name="logo-facebook"></ion-icon>
+          </a>
+        </li>
+        <li class="social-icon__item">
+          <a class="social-icon__link" href="#">
+            <ion-icon name="logo-twitter"></ion-icon>
+          </a>
+        </li>
+        <li class="social-icon__item">
+          <a class="social-icon__link" href="#">
+            <ion-icon name="logo-linkedin"></ion-icon>
+          </a>
+        </li>
+        <li class="social-icon__item">
+          <a class="social-icon__link" href="#">
+            <ion-icon name="logo-instagram"></ion-icon>
+          </a>
+        </li>
+      </ul>
+      <ul class="menu">
+        <li class="menu__item">
+          <a class="menu__link" href="shipping.html">Shipping</a>
+        </li>
+        <li class="menu__item">
+          <a class="menu__link" href="returns.html">Returns</a>
+        </li>
+        <li class="menu__item">
+          <a class="menu__link" href="privacy-policy.html">Privacy-Policy</a>
+        </li>
+        <li class="menu__item">
+          <a class="menu__link" href="terms-of-use.html">Terms of Use</a>
+        </li>
+        <li class="menu__item">
+          <a class="menu__link" href="Affiliates.html">Affilates</a>
+        </li>
+      </ul>
+      <p>&copy; 2024 Nishkaam . All Rights Reserved.</p>
+    </footer>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+    ></script>
 
-  </div>
-  <nav id="nav">
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="about_us.html">About Us</a></li>
-      <li><a href="achievements.html" class="active">Achievements</a></li>
-      <li><a href="period_calculator.html">Periodic Calculator</a></li>
-      <li><a href="blogs.html">Blogs</a></li>
-      <li><a href="products.html">Product</a></li>
-      <li><a href="contact_us.html">Contact Us</a></li>
-    </ul>
-    <button id="nav-toggle" class="fa-solid fa-bars"></button>
+    <script>
+    function handleSearch() {
+  var searchTerm = document.querySelector('input[type="text"]').value;
+  alert("Searching for: " + searchTerm);
+}
 
-  </nav>
-  
-  <footer class="footer">
-    <div class="waves">
-      <div class="wave" id="wave1"></div>
-      <div class="wave" id="wave2"></div>
-      <div class="wave" id="wave3"></div>
-      <div class="wave" id="wave4"></div>
-    </div>
-    <ul class="social-icon">
-      <li class="social-icon__item"><a class="social-icon__link" href="#">
-          <ion-icon name="logo-facebook"></ion-icon>
-        </a></li>
-      <li class="social-icon__item"><a class="social-icon__link" href="#">
-          <ion-icon name="logo-twitter"></ion-icon>
-        </a></li>
-      <li class="social-icon__item"><a class="social-icon__link" href="#">
-          <ion-icon name="logo-linkedin"></ion-icon>
-        </a></li>
-      <li class="social-icon__item"><a class="social-icon__link" href="#">
-          <ion-icon name="logo-instagram"></ion-icon>
-        </a></li>
-    </ul>
-    <ul class="menu">
-      <li class="menu__item"><a class="menu__link" href="shipping.html">Shipping</a></li>
-      <li class="menu__item"><a class="menu__link" href="returns.html">Returns</a></li>
-      <li class="menu__item"><a class="menu__link" href="privacy-policy.html">Privacy-Policy</a></li>
-      <li class="menu__item"><a class="menu__link" href="terms-of-use.html">Terms of Use</a></li>
-      <li class="menu__item"><a class="menu__link" href="Affiliates.html">Affilates</a></li>
-    </ul>
-    <p>&copy; 2024 Nishkaam . All Rights Reserved.</p>
-  </footer>
-  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+document.querySelector("button").addEventListener("click", handleSearch);
 
+document.getElementById("nav-toggle").addEventListener("click", function () {
+  this.classList.toggle("active");
+  document.getElementById("nav").classList.toggle("active");
+});
 
-<script>
-  function handleSearch() {
-    var searchTerm = document.querySelector('input[type="text"]').value;
-    alert('Searching for: ' + searchTerm);
-
+function removeFromCart(index) {
+  if (typeof Storage !== "undefined") {
+    let cart = JSON.parse(sessionStorage.getItem("cart")) || [];
+    if (index !== -1) {
+      cart.splice(index, 1);
+      sessionStorage.setItem("cart", JSON.stringify(cart));
+      displayCart();
+    }
+  } else {
+    alert("Sorry, your browser does not support sessionStorage.");
   }
+}
 
-  document.querySelector('button').addEventListener('click', handleSearch);
-  document.querySelectorAll('.hover-button').forEach(button => {
-    button.addEventListener('mouseover', function () {
-      this.style.backgroundColor = 'green';
-    });
+function decreaseQuantity(button) {
+  let input = button.nextElementSibling;
+  let value = parseInt(input.value);
+  if (value > 1) {
+    input.value = value - 1;
+  }
+}
 
-    button.addEventListener('mouseout', function () {
-      this.style.backgroundColor = '#333333';
-    });
-  });
-  document
-  .getElementById("nav-toggle")
-  .addEventListener("click", function () {
-    this.classList.toggle("active");
-    document.getElementById("nav").classList.toggle("active");     
+function increaseQuantity(button) {
+  let input = button.previousElementSibling;
+  let value = parseInt(input.value);
+  input.value = value + 1;
+}
 
+function addToCart(product) {
+  if (typeof Storage !== "undefined") {
+    let cart = JSON.parse(sessionStorage.getItem("cart")) || [];
+    let existingProductIndex = cart.findIndex((item) => item.id === product.id);
+    if (existingProductIndex !== -1) {
+      cart[existingProductIndex].quantity += product.quantity;
+    } else {
+      product.quantity = product.quantity || 1;
+      cart.push(product);
+    }
+    sessionStorage.setItem("cart", JSON.stringify(cart));
+    displayCart();
+  } else {
+    alert("Sorry, your browser does not support sessionStorage.");
+  }
+}
 
-  });
+function displayCart() {
+  if (typeof Storage !== "undefined") {
+    let cart = JSON.parse(sessionStorage.getItem("cart")) || [];
+    let total = 0;
+    if (cart.length > 0) {
+      let cartHtml = "";
+      cart.forEach(function (product) {
+        let subtotal = product.price * product.quantity;
+        total += subtotal;
+        cartHtml += `
+          <div class="product-container">
+            <div class="product-image">
+              <img src="${product.image}" alt="${product.name}" height="150px;" width="150px">
+            </div>
+            <div class="product-details">
+              <h2>${product.name}</h2>
+              <p>${product.variant}</p>
+              <h4>${product.size}</h4>
+              <p>${product.price}</p>
+              <button class="save-button">SAVE FOR LATER</button>
+              <button class="remove-button" onclick="removeFromCart(${cart.indexOf(product)})">REMOVE</button>
 
-</script>    
+              <div class="quantity-selector">
+                <button onclick="decreaseQuantity(this)">-</button>
+                <input type="number" value="${product.quantity}" min="1">
+                <button onclick="increaseQuantity(this)">+</button>
+              </div>
+            </div>
+          </div>`;
+      });
+      document.getElementById("cart").innerHTML = cartHtml;
+    } else {
+      document.getElementById("cart").innerHTML = "Your cart is empty";
+    }
+    document.getElementById("total").textContent = total.toFixed(2);
+  } else {
+    alert("Sorry, your browser does not support sessionStorage.");
+  }
+}
 
-  
-</body>
+function checkout() {
+  alert("Redirecting to checkout page...");
+}
 
+displayCart();
+    </script>
+  </body>
 </html>

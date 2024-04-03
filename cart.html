@@ -164,7 +164,7 @@
       font-size: 16px;
     }
     .header-left-part button{
-      
+      font-size: 12px;
     }
     </style>
   </head>
@@ -220,28 +220,28 @@
         </div>
       </div>
       <div class="checkout right-part" id="cart">
-        <p>Total: $<span id="total"></span></p>
+        <p>Total: Rs.<span id="total"></span></p>
         <table style="width: 80%;">
           <tr>
           <td>Sub-Total</td>
-          <td>$50</td>
+          <td>RS.50</td>
           </tr>
           <tr>
           <td>Shipping Charge</td>
-          <td>$5</td>
+          <td>RS.5</td>
           </tr>
           <tr>
             <td>Discount</td>
-            <td>-$5</td>
+            <td>-RS.5</td>
           </tr>
           <tr>
             <td>Coupons Discount</td>
-            <td>-$5</td>
+            <td>-RS.5</td>
           </tr>
           
           <tr>
             <td>Total</td>
-            <td>$45</td>
+            <td>RS.45</td>
           </tr>
         </table>
      <a href="checkout.html">   <button onclick="checkout()">Checkout</button></a>
@@ -380,7 +380,7 @@ function displayCart() {
               <h2>${product.name}</h2>
               <p>${product.variant}</p>
               <h4>${product.size}</h4>
-              <p>${product.price}</p>
+              <p>Rs.${product.price}</p>
               <button class="save-button">SAVE FOR LATER</button>
               <button class="remove-button" onclick="removeFromCart(${cart.indexOf(product)})">REMOVE</button>
 

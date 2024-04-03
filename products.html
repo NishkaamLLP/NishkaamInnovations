@@ -440,10 +440,10 @@
             Ditch the plastic, embrace nature! Our ultra-soft, 100% biodegradable pads are made from renewable wheat & rice straw. Gentle on skin, tough on leaks, they vanish in weeks, not centuries. Choose comfort, choose Earth. Switch today!
         </p>
         <div>
-          <span style="font-size: 1.5em" id="product-price">Price: $50 </span
+          <span style="font-size: 1.5em" id="product-price">Price: Rs.50 </span
           ><span
             style="text-decoration: line-through; font: size 1em; color: grey"
-            >$60</span
+            >Rs.60</span
           >
         </div>
         <div>
@@ -455,7 +455,7 @@
           <h2>Size</h2>
           <button id="medium-size" class="Size-button selected">M</button>
           <button id="large-size" class="Size-button">L</button>
-          <button  id="x-large-size" class="Size-button">XL</button>
+          <button id="x-large-size" class="Size-button">XL</button>
         </div>
         <br />
         <div>
@@ -538,7 +538,7 @@
               style="height: 200px; width: 200px"
             />
             <h3>Product Name 1</h3>
-            <p>Price: $50</p>
+            <p>Price: Rs.50</p>
             <a href="products.html" class="view-product">View Product</a>
           </div>
         </div>
@@ -547,7 +547,7 @@
           <div class="featured-product">
             <img src="images/Tissue1.jpg" alt="Product 2" />
             <h3>Product Name 2</h3>
-            <p>Price: $140</p>
+            <p>Price: Rs.140</p>
             <a href="tissues.html" class="view-product">View Product</a>
           </div>
         </div>
@@ -556,7 +556,7 @@
           <div class="featured-product">
             <img src="images/Bag1.jpg" alt="Product 3" />
             <h3>Product Name 3</h3>
-            <p>Price: $160</p>
+            <p>Price: Rs.160</p>
             <a href="bags.html" class="view-product">View Product</a>
           </div>
         </div>
@@ -565,7 +565,7 @@
           <div class="featured-product">
             <img src="images/view1.png" alt="Product 4" />
             <h3>Product Name 4</h3>
-            <p>Price: $160</p>
+            <p>Price: Rs.160</p>
             <a href="#" class="view-product">View Product</a>
           </div>
         </div>
@@ -574,7 +574,7 @@
           <div class="featured-product">
             <img src="images/view2.png" alt="Product 5" />
             <h3>Product Name 5</h3>
-            <p>Price: $180</p>
+            <p>Price: Rs.180</p>
             <a href="#" class="view-product">View Product</a>
           </div>
         </div>
@@ -583,7 +583,7 @@
           <div class="featured-product">
             <img src="images/view3.png" alt="Product 6" />
             <h3>Product Name 6</h3>
-            <p>Price: $200</p>
+            <p>Price: Rs.200</p>
             <a href="#" class="view-product">View Product</a>
           </div>
         </div>
@@ -625,7 +625,6 @@
   </footer>
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-
 
     <script>
       function handleSearch() {
@@ -691,7 +690,7 @@
       function addToCart() {
         // Get product details
         let productName = document.getElementById('product-name').innerText;       
-        let productPrice = parseFloat(document.getElementById('product-price').innerText.split('$')[1]); // Extracting the price without the "$" sign and converting to float
+        let productPrice = parseFloat(document.getElementById('product-price').innerText.split('Rs.')[1]); // Extracting the price without the "$" sign and converting to float
         let productVariant = document.querySelector('.variant-button.selected').innerText;
         let productSize = document.querySelector('.Size-button.selected').innerText;
         let productQuantity = parseInt(document.getElementById('quantity').value); // Converting quantity to integer
@@ -857,9 +856,6 @@
           slides[adjustedIndex].style.display = "block";
         }
       }
-
-      
-      
     </script>
   </body>
 </html>

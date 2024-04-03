@@ -174,6 +174,7 @@
       margin-top: 20px;
       border: 1px solid black;
       font-size: 16px;
+      cursor: pointer;
     }
     .container {
       max-width: 800px;
@@ -434,27 +435,27 @@
         </div>
       </div>
       <div class="product-description">
-        <h2>Description</h2>
-        <p>
+        <h2 id="product-name">Bags</h2>
+        <p id="product-desc" >
           Introducing our eco-friendly bags, crafted with sustainability in mind. Made from 100% biodegradable materials, these bags not only offer stylish functionality but also leave a positive impact on the environment. Embrace eco-conscious living with our environmentally friendly bags, perfect for those who care about the planet. 
         </p>
         <div>
-          <span style="font-size: 1.5em">Price: Rs.100 </span
+          <span style="font-size: 1.5em" id="product-price">Price: Rs.160 </span
           ><span
             style="text-decoration: line-through; font: size 1em; color: grey"
-            >Rs.150</span
+            >Rs.200</span
           >
         </div>
         <div>
           <h2>Variant</h2>
-          <button class="variant-button selected">Regular</button>
-          <button class="variant-button">Paper</button>
+          <button id="regular-variant" class="variant-button selected">Regular</button>
+          <button id="Paper-variant" class="variant-button">Paper</button>
         </div>
         <div>
           <h2>Size</h2>
-          <button class="Size-button selected">M</button>
-          <button class="Size-button">L</button>
-          <button class="Size-button">XL</button>
+          <button id="medium-size" class="Size-button selected">M</button>
+          <button id="large-size" class="Size-button">L</button>
+          <button id="x-large-size" class="Size-button">XL</button>
         </div>
         <br />
         <div>
@@ -472,8 +473,8 @@
             <option value="10">10</option>
           </select>
         </div>
-        <a href="cart.html" class="buy-button" onclick="addToCart()">Buy Now</a>
-        <button class="add-to-cart-button" id="addToCartButton">
+        <a href="cart.html" class="buy-button" >Buy Now</a>
+        <button class="add-to-cart-button" id="addToCartButton" onclick="addToCart()">
           <i class="fas fa-shopping-cart"></i> Add to Cart
         </button>
       </div>
@@ -539,7 +540,7 @@
               style="height: 200px; width: 200px"
             />
             <h3>Product Name 1</h3>
-            <p>Price: $50</p>
+            <p>Price: RS.50</p>
             <a href="products.html" class="view-product">View Product</a>
           </div>
         </div>
@@ -548,7 +549,7 @@
           <div class="featured-product">
             <img src="images/Tissue1.jpg" alt="Product 2" />
             <h3>Product Name 2</h3>
-            <p>Price: $140</p>
+            <p>Price: RS.140</p>
             <a href="tissues.html" class="view-product">View Product</a>
           </div>
         </div>
@@ -557,7 +558,7 @@
           <div class="featured-product">
             <img src="images/bag1.jpg" alt="Product 3" />
             <h3>Product Name 3</h3>
-            <p>Price: $160</p>
+            <p>Price: RS.160</p>
             <a href="bags.html" class="view-product">View Product</a>
           </div>
         </div>
@@ -566,7 +567,7 @@
           <div class="featured-product">
             <img src="images/view1.png" alt="Product 4" />
             <h3>Product Name 4</h3>
-            <p>Price: $160</p>
+            <p>Price: RS.160</p>
             <a href="#" class="view-product">View Product</a>
           </div>
         </div>
@@ -575,7 +576,7 @@
           <div class="featured-product">
             <img src="images/view2.png" alt="Product 5" />
             <h3>Product Name 5</h3>
-            <p>Price: $180</p>
+            <p>Price: RS.180</p>
             <a href="#" class="view-product">View Product</a>
           </div>
         </div>
@@ -584,7 +585,7 @@
           <div class="featured-product">
             <img src="images/view3.png" alt="Product 6" />
             <h3>Product Name 6</h3>
-            <p>Price: $200</p>
+            <p>Price: RS.200</p>
             <a href="#" class="view-product">View Product</a>
           </div>
         </div>
@@ -627,245 +628,236 @@
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
+  <script>
+    function handleSearch() {
+      var searchTerm = document.querySelector('input[type="text"]').value;
+      alert("Searching for: " + searchTerm);
+    }
 
-    <script>
-      function handleSearch() {
-        var searchTerm = document.querySelector('input[type="text"]').value;
-        alert("Searching for: " + searchTerm);
-      }
-
-      document.querySelector("button").addEventListener("click", handleSearch);
-      document.querySelectorAll(".hover-button").forEach((button) => {
-        button.addEventListener("mouseover", function () {
-          this.style.backgroundColor = "green";
-        });
-
-        button.addEventListener("mouseout", function () {
-          this.style.backgroundColor = "#333333";
-        });
+    document.querySelector("button").addEventListener("click", handleSearch);
+    document.querySelectorAll(".hover-button").forEach((button) => {
+      button.addEventListener("mouseover", function () {
+        this.style.backgroundColor = "green";
       });
-      document
-        .getElementById("nav-toggle")
-        .addEventListener("click", function () {
-          this.classList.toggle("active");
-          document.getElementById("nav").classList.toggle("active");
-        });
-      // Function to handle variant button clicks
-      function handleVariantButtonClick(event) {
-        // Remove the "selected" class from all variant buttons
-        var variantButtons = document.querySelectorAll(".variant-button");
-        variantButtons.forEach(function (button) {
-          button.classList.remove("selected");
-        });
-        // Add the "selected" class to the clicked variant button
-        event.target.classList.add("selected");
-      }
-      function changeProductImage(imageSrc) {
-        // Get the product image element
-        var productImage = document.querySelector('.product-container img');
-        // Change the source of the product image
-        productImage.src = imageSrc;
-      }
 
-      // Add event listeners to variant buttons
+      button.addEventListener("mouseout", function () {
+        this.style.backgroundColor = "#333333";
+      });
+    });
+    document
+      .getElementById("nav-toggle")
+      .addEventListener("click", function () {
+        this.classList.toggle("active");
+        document.getElementById("nav").classList.toggle("active");
+      });
+    // Function to handle variant button clicks
+    function handleVariantButtonClick(event) {
+      // Remove the "selected" class from all variant buttons
       var variantButtons = document.querySelectorAll(".variant-button");
       variantButtons.forEach(function (button) {
-        button.addEventListener("click", handleVariantButtonClick);
+        button.classList.remove("selected");
       });
+      // Add the "selected" class to the clicked variant button
+      event.target.classList.add("selected");
+    }
+    function changeProductImage(imageSrc) {
+      // Get the product image element
+      var productImage = document.querySelector('.product-container img');
+      // Change the source of the product image
+      productImage.src = imageSrc;
+    }
 
-      // Function to handle size button clicks
-      function handleSizeButtonClick(event) {
-        // Remove the "selected" class from all size buttons
-        var sizeButtons = document.querySelectorAll(".Size-button");
-        sizeButtons.forEach(function (button) {
-          button.classList.remove("selected");
-        });
-        // Add the "selected" class to the clicked size button
-        event.target.classList.add("selected");
-      }
+    // Add event listeners to variant buttons
+    var variantButtons = document.querySelectorAll(".variant-button");
+    variantButtons.forEach(function (button) {
+      button.addEventListener("click", handleVariantButtonClick);
+    });
 
-      // Add event listeners to size buttons
+    // Function to handle size button clicks
+    function handleSizeButtonClick(event) {
+      // Remove the "selected" class from all size buttons
       var sizeButtons = document.querySelectorAll(".Size-button");
       sizeButtons.forEach(function (button) {
-        button.addEventListener("click", handleSizeButtonClick);
+        button.classList.remove("selected");
       });
-      // Select the "Add to Cart" button
-      var addToCartButton = document.getElementById("addToCartButton");
+      // Add the "selected" class to the clicked size button
+      event.target.classList.add("selected");
+    }
 
-      // Add a click event listener to the "Add to Cart" button
-      addToCartButton.addEventListener("click", function (event) {
-        // Prevent the default behavior (page redirect)
-        event.preventDefault();
+    // Add event listeners to size buttons
+    var sizeButtons = document.querySelectorAll(".Size-button");
+    sizeButtons.forEach(function (button) {
+      button.addEventListener("click", handleSizeButtonClick);
+    });
+    function addToCart() {
+      // Get product details
+      let productName = document.getElementById('product-name').innerText;       
+      let productPrice = parseFloat(document.getElementById('product-price').innerText.split('Rs.')[1]); // Extracting the price without the "$" sign and converting to float
+      let productVariant = document.querySelector('.variant-button.selected').innerText;
+      let productSize = document.querySelector('.Size-button.selected').innerText;
+      let productQuantity = parseInt(document.getElementById('quantity').value); // Converting quantity to integer
+      let productImage = document.querySelector('.product-container img').src; // Get the image URL
+    
+      // Calculate total price based on quantity
+      let totalPrice = productPrice * productQuantity;
+    
+      // Construct metadata object
+      let productMetadata = {
+        name: productName,
+        price: totalPrice, // Update price to reflect total price
+        variant: productVariant,
+        size: productSize,
+        quantity: productQuantity,
+        image: productImage // Include the image URL
+      };
+    
+      // Check if sessionStorage is available
+      if (typeof(Storage) !== "undefined") {
+        // Get cart from sessionStorage or initialize an empty array
+        let cart = JSON.parse(sessionStorage.getItem('cart')) || [];
+    
+        // Add the product metadata to the cart array
+        cart.push(productMetadata);
+    
+        // Save the updated cart to sessionStorage
+        sessionStorage.setItem('cart', JSON.stringify(cart));
+    
+        // Optionally, display a confirmation message
+        alert('Product added to cart successfully!');
+      } else {
+        // If sessionStorage is not available, display an error message
+        alert('Sorry, your browser does not support sessionStorage.');
+      }
+  }
+  
+    
 
-        // Call the addToCart function
-        addToCart();
+
+    // Function to show reviews and hide specifications
+    function showReviews() {
+      document.getElementById("reviews").style.display = "block";
+      document.getElementById("specifications").style.display = "none";
+      document.querySelector(".button.active").classList.remove("active");
+      document.querySelectorAll(".button")[0].classList.add("active");
+    }
+
+    // Function to show specifications and hide reviews
+    function showSpecifications() {
+      document.getElementById("reviews").style.display = "none";
+      document.getElementById("specifications").style.display = "block";
+      document.querySelector(".button.active").classList.remove("active");
+      document.querySelectorAll(".button")[1].classList.add("active");
+    }
+
+    // Function to update star rating
+    function setRating(rating) {
+      // Clear previous rating
+      document.querySelectorAll(".star").forEach(function (element) {
+        element.classList.remove("fa", "fa-star");
+        element.classList.add("far", "fa-star");
       });
 
-      // Your existing addToCart function
-      function addToCart() {
-        // Get the selected quantity
-        var quantity = document.getElementById("quantity").value;
-
-        // You can perform additional logic here, such as adding the product to a cart object or making an API call to add the product to the cart
-
-        // For demonstration purposes, let's alert the user that the product has been added to the cart
-        alert("Product added to cart. Quantity: " + quantity);
-
-        // You can add your custom logic here for updating the cart UI or performing any other action
-      } // Function to show reviews and hide specifications
-      function showReviews() {
-        document.getElementById("reviews").style.display = "block";
-        document.getElementById("specifications").style.display = "none";
-        document.querySelector(".button.active").classList.remove("active");
-        document.querySelectorAll(".button")[0].classList.add("active");
+      // Set new rating
+      for (let i = 0; i < rating; i++) {
+        document.getElementById("star" + i).classList.remove("far");
+        document.getElementById("star" + i).classList.add("fa");
       }
+    }
+    function submitReview() {
+      const comment = document.getElementById("comment").value;
+      const rating = document.querySelectorAll(".star.fa").length;
 
-      // Function to show specifications and hide reviews
-      function showSpecifications() {
-        document.getElementById("reviews").style.display = "none";
-        document.getElementById("specifications").style.display = "block";
-        document.querySelector(".button.active").classList.remove("active");
-        document.querySelectorAll(".button")[1].classList.add("active");
+      // Clear previous rating and comment
+      document.getElementById("comment").value = "";
+      setRating(0);
+
+      // Append new review to existing reviews
+      const existingReviews = document.getElementById("existingReviews");
+      const newReview = document.createElement("div");
+      newReview.innerHTML = ` <p><strong>Rating:</strong> ${rating} stars</p><p><strong>Comment:</strong> ${comment}</p>`;
+      existingReviews.appendChild(newReview);
+    }
+
+    // Function to update star rating
+    function setRating(rating) {
+      // Clear previous rating
+      document.querySelectorAll(".star").forEach(function (element) {
+        element.classList.remove("fa", "fa-star");
+        element.classList.add("far", "fa-star");
+      });
+
+      // Set new rating
+      for (let i = 0; i < rating; i++) {
+        document.getElementById("star" + (i + 1)).classList.remove("far");
+        document.getElementById("star" + (i + 1)).classList.add("fa");
       }
+    }
 
-      // Function to update star rating
-      function setRating(rating) {
-        // Clear previous rating
-        document.querySelectorAll(".star").forEach(function (element) {
-          element.classList.remove("fa", "fa-star");
-          element.classList.add("far", "fa-star");
+    // Initialize star rating
+    document.addEventListener("DOMContentLoaded", function () {
+      const starsContainer = document.querySelector(".stars");
+      for (let i = 1; i <= 5; i++) {
+        const star = document.createElement("span");
+        star.id = "star" + i;
+        star.classList.add("star", "far", "fa-star");
+        star.addEventListener("click", function () {
+          setRating(i);
         });
-
-        // Set new rating
-        for (let i = 0; i < rating; i++) {
-          document.getElementById("star" + i).classList.remove("far");
-          document.getElementById("star" + i).classList.add("fa");
-        }
+        starsContainer.appendChild(star);
       }
-      function submitReview() {
-        const comment = document.getElementById("comment").value;
-        const rating = document.querySelectorAll(".star.fa").length;
+    });
 
-        // Clear previous rating and comment
-        document.getElementById("comment").value = "";
-        setRating(0);
+    document.addEventListener("DOMContentLoaded", function () {
+      const slides = document.getElementsByClassName("carousel-item");
+      const totalSlides = slides.length;
 
-        // Append new review to existing reviews
-        const existingReviews = document.getElementById("existingReviews");
-        const newReview = document.createElement("div");
-        newReview.innerHTML = ` <p><strong>Rating:</strong> ${rating} stars</p><p><strong>Comment:</strong> ${comment}</p>`;
-        existingReviews.appendChild(newReview);
-      }
-
-      // Function to update star rating
-      function setRating(rating) {
-        // Clear previous rating
-        document.querySelectorAll(".star").forEach(function (element) {
-          element.classList.remove("fa", "fa-star");
-          element.classList.add("far", "fa-star");
-        });
-
-        // Set new rating
-        for (let i = 0; i < rating; i++) {
-          document.getElementById("star" + (i + 1)).classList.remove("far");
-          document.getElementById("star" + (i + 1)).classList.add("fa");
-        }
-      }
-
-      // Initialize star rating
-      document.addEventListener("DOMContentLoaded", function () {
-        const starsContainer = document.querySelector(".stars");
-        for (let i = 1; i <= 5; i++) {
-          const star = document.createElement("span");
-          star.id = "star" + i;
-          star.classList.add("star", "far", "fa-star");
-          star.addEventListener("click", function () {
-            setRating(i);
-          });
-          starsContainer.appendChild(star);
-        }
-      });
-
-      document.addEventListener("DOMContentLoaded", function () {
-        const slides = document.getElementsByClassName("carousel-item");
-        const totalSlides = slides.length;
-
-        for (let i = 0; i < totalSlides; i++) {
-          if (i >= 4) {
-            slides[i].style.display = "none";
-          }
-        }
-      });
-
-      document.addEventListener("DOMContentLoaded", function () {
-        const slides = document.getElementsByClassName("carousel-item");
-        const totalSlides = slides.length;
-
-        // Hide all slides except the first four
-        for (let i = 0; i < totalSlides; i++) {
-          if (i >= 4) {
-            slides[i].style.display = "none";
-          }
-        }
-      });
-
-      let slideIndex = 0;
-
-      function moveSlide(n) {
-        const slides = document.getElementsByClassName("carousel-item");
-        const totalSlides = slides.length;
-
-        // Update the slideIndex
-        slideIndex += n;
-
-        // Loop slideIndex if it goes beyond the total number of slides
-        if (slideIndex >= totalSlides) {
-          slideIndex = 0;
-        }
-        if (slideIndex < 0) {
-          slideIndex = totalSlides - 1;
-        }
-
-        // Hide all slides
-        for (let i = 0; i < totalSlides; i++) {
+      for (let i = 0; i < totalSlides; i++) {
+        if (i >= 4) {
           slides[i].style.display = "none";
         }
+      }
+    });
 
-        // Show four slides starting from slideIndex
-        for (let i = slideIndex; i < slideIndex + 4; i++) {
-          const adjustedIndex = i % totalSlides; // Handle looping back to the beginning
-          slides[adjustedIndex].style.display = "block";
+    document.addEventListener("DOMContentLoaded", function () {
+      const slides = document.getElementsByClassName("carousel-item");
+      const totalSlides = slides.length;
+
+      // Hide all slides except the first four
+      for (let i = 0; i < totalSlides; i++) {
+        if (i >= 4) {
+          slides[i].style.display = "none";
         }
       }
+    });
 
-      // Define the cart data structure
-      let cart = [];
+    let slideIndex = 0;
 
-      function addToCart() {
-        // Check if sessionStorage is available
-        if (typeof(Storage) !== "undefined") {
-          // If available, get the cart from sessionStorage or create a new one
-          let cart = JSON.parse(sessionStorage.getItem('cart')) || [];
-      
-          // Get the selected quantity from the dropdown
-          let quantity = parseInt(document.getElementById('quantity').value);
-      
-          // Add product with quantity to cart (in a real scenario, you'd probably want to add the actual product details)
-          cart.push({name: 'Bags', price: 100, quantity: quantity});
-      
-          // Update cart in sessionStorage
-          sessionStorage.setItem('cart', JSON.stringify(cart));
-      
-          // Notify user
-          alert('Product added to cart!');
-        } else {
-          alert('Sorry, your browser does not support sessionStorage.');
-        }
+    function moveSlide(n) {
+      const slides = document.getElementsByClassName("carousel-item");
+      const totalSlides = slides.length;
+
+      // Update the slideIndex
+      slideIndex += n;
+
+      // Loop slideIndex if it goes beyond the total number of slides
+      if (slideIndex >= totalSlides) {
+        slideIndex = 0;
       }
-      
-      
-      
-      
-    </script>
+      if (slideIndex < 0) {
+        slideIndex = totalSlides - 1;
+      }
+
+      // Hide all slides
+      for (let i = 0; i < totalSlides; i++) {
+        slides[i].style.display = "none";
+      }
+
+      // Show four slides starting from slideIndex
+      for (let i = slideIndex; i < slideIndex + 4; i++) {
+        const adjustedIndex = i % totalSlides; // Handle looping back to the beginning
+        slides[adjustedIndex].style.display = "block";
+      }
+    }
+  </script>
   </body>
 </html>

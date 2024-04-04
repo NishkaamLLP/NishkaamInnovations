@@ -210,7 +210,10 @@
       <div class="left-part">
         <div class="header-left-part">
           <h2>From saved address</h2>
-          <button>Enter the dilivery Pincode</button>
+          <!-- Add an input field for entering the pincode -->
+          <input type="text" id="pincodeInput" style="display: none;" placeholder="Enter delivery pincode">
+          <!-- Change the button to toggle the visibility of the input field -->
+          <button onclick="fetchLocationAndFillPincode()">Enter the delivery Pincode</button>
         </div>
         <div class="left-part-body" id="cart">
          
@@ -389,6 +392,34 @@ function checkout() {
 }
 
 displayCart();
+
+      // Function to fetch the user's location and fill the pincode input field
+      function fetchLocationAndFillPincode() {
+        if (navigator.geolocation) {
+          // Use Geolocation API to get the user's location
+          navigator.geolocation.getCurrentPosition(function(position) {
+            // Get latitude and longitude
+            var latitude = position.coords.latitude;
+            var longitude = position.coords.longitude;
+
+            // Call a function to fetch the pincode based on latitude and longitude
+            fetchPincodeFromCoordinates(latitude, longitude);
+          });
+        } else {
+          alert("Geolocation is not supported by this browser.");
+        }
+      }
+
+      // Function to fetch the pincode based on latitude and longitude
+      function fetchPincodeFromCoordinates(latitude, longitude) {
+        // You can use a geocoding service or your backend API to fetch the pincode
+        // Here, we are simulating the fetching process and filling the pincode input field
+        var fakePincode = "360003"; // Simulated pincode
+        var pincodeInput = document.getElementById("pincodeInput");
+        pincodeInput.value = fakePincode; // Fill the pincode input field with the fetched pincode
+        pincodeInput.style.display = "block"; // Show the pincode input field
+      }
+      
     </script>
   </body>
 </html>

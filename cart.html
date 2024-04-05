@@ -354,7 +354,7 @@ function displayCart() {
     if (cart.length > 0) {
       let cartHtml = "";
       cart.forEach(function (product) {
-        let subtotal = product.price * product.quantity;
+        let subtotal = product.price ;
         total += subtotal;
         cartHtml += `
           <div class="product-container">

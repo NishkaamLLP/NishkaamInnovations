@@ -258,13 +258,13 @@ function submitForm() {
   
   // Set up event listeners for load and error events
   xhr.onload = function () {
-    if (xhr.status === 200) {
+    if (xhr.status === 200|| 201) {
       // Handle successful form submission
-      alert('Form submitted successfully!');
+      alert('Message sent successfully!');
       form.reset(); // Optionally, reset the form after successful submission
     } else {
       // Handle form submission error
-      alert('Form submission failed. Please try again later.');
+      alert('Message submission failed. Please try again later.');
     }
   };
 

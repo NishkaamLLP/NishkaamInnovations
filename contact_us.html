@@ -170,7 +170,7 @@ button:hover {
 
   <div class="container">
       <h2>Contact Us</h2>
-      <form method="post" action="http://localhost:4000/messages" id="contactForm" onsubmit="submitForm(event)">
+      <form id="contactForm">
           <label for="name">Name</label>
           <input type="text" id="name" name="name" placeholder="Enter Your Name">
 
@@ -180,7 +180,7 @@ button:hover {
           <label for="message">Message:</label>
           <textarea id="message" name="message" rows="4" placeholder="Write your message here..."></textarea>
 
-          <button type="button">Submit</button>
+          <button type="button" onclick="submitForm()">Submit</button>
       </form>
   </div>
 
@@ -221,50 +221,44 @@ button:hover {
 
   <script>
 
-    function handleSearch() {
-      var searchTerm = document.querySelector('input[type="text"]').value;
-      alert('Searching for: ' + searchTerm);
+    // function handleSearch() {
+    //   var searchTerm = document.querySelector('input[type="text"]').value;
+    //   alert('Searching for: ' + searchTerm);
 
-    }
+    // }
 
-    document.querySelector('button').addEventListener('click', handleSearch);
-    document.querySelectorAll('.hover-button').forEach(button => {
-      button.addEventListener('mouseover', function () {
-        this.style.backgroundColor = 'green';
-      });
+    // document.querySelector('button').addEventListener('click', handleSearch);
+    // document.querySelectorAll('.hover-button').forEach(button => {
+    //   button.addEventListener('mouseover', function () {
+    //     this.style.backgroundColor = 'green';
+    //   });
 
-      button.addEventListener('mouseout', function () {
-        this.style.backgroundColor = '#333333';
-      });
-    });
-    document
-    .getElementById("nav-toggle")
-    .addEventListener("click", function () {
-      this.classList.toggle("active");
-      document.getElementById("nav").classList.toggle("active");     
+    //   button.addEventListener('mouseout', function () {
+    //     this.style.backgroundColor = '#333333';
+    //   });
+    // });
+    // document
+    // .getElementById("nav-toggle")
+    // .addEventListener("click", function () {
+    //   this.classList.toggle("active");
+    //   document.getElementById("nav").classList.toggle("active");     
 
 
-    });
-function submitForm(event) {
-    // Prevent the default form submission behavior
-    event.preventDefault();
-
-    // Get form data
+    // });function submitForm() {
     const form = document.getElementById('contactForm');
     const formData = new FormData(form);
 
     // Make an AJAX request to submit the form data
     const xhr = new XMLHttpRequest();
-    xhr.open('POST', form.action);
+    xhr.open('POST', 'http://localhost:4000/messages');
     xhr.onload = function () {
         if (xhr.status === 200) {
             // Handle successful form submission
-            alert('Message sent successfully!');
-            // Optionally, reset the form after successful submission
-            form.reset();
+            alert('Form submitted successfully!');
+            form.reset(); // Optionally, reset the form after successful submission
         } else {
             // Handle form submission error
-            alert('Message submission failed. Please try again later.');
+            alert('Form submission failed. Please try again later.');
         }
     };
     xhr.onerror = function () {
@@ -273,6 +267,7 @@ function submitForm(event) {
     };
     xhr.send(formData);
 }
+
 
   </script>    
 

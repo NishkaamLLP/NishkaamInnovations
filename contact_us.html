@@ -217,53 +217,53 @@ button:hover {
   </footer>
   <script>
 
-    // function handleSearch() {
-    //   var searchTerm = document.querySelector('input[type="text"]').value;
-    //   alert('Searching for: ' + searchTerm);
-
-    // }
-
-    // document.querySelector('button').addEventListener('click', handleSearch);
-    // document.querySelectorAll('.hover-button').forEach(button => {
-    //   button.addEventListener('mouseover', function () {
-    //     this.style.backgroundColor = 'green';
-    //   });
-
-    //   button.addEventListener('mouseout', function () {
-    //     this.style.backgroundColor = '#333333';
-    //   });
-    // });
-    // document
-    // .getElementById("nav-toggle")
-    // .addEventListener("click", function () {
-    //   this.classList.toggle("active");
-    //   document.getElementById("nav").classList.toggle("active");     
-
-
-    // });function submitForm() {
-    const form = document.getElementById('contactForm');
-    const formData = new FormData(form);
-
-    // Make an AJAX request to submit the form data
-    const xhr = new XMLHttpRequest();
-    xhr.open('POST', 'http://localhost:4000/messages');
-    xhr.onload = function () {
-        if (xhr.status === 200) {
-            // Handle successful form submission
-            alert('Form submitted successfully!');
-            form.reset(); // Optionally, reset the form after successful submission
-        } else {
-            // Handle form submission error
-            alert('Form submission failed. Please try again later.');
-        }
-    };
-    xhr.onerror = function () {
-        // Handle network error
-        alert('Network error occurred. Please try again later.');
-    };
-    xhr.send(formData);
+  function handleSearch() {
+  var searchTerm = document.querySelector('input[type="text"]').value;
+  alert('Searching for: ' + searchTerm);
 }
 
+document.querySelector('button').addEventListener('click', handleSearch);
+
+document.querySelectorAll('.hover-button').forEach(button => {
+  button.addEventListener('mouseover', function () {
+    this.style.backgroundColor = 'green';
+  });
+
+  button.addEventListener('mouseout', function () {
+    this.style.backgroundColor = '#333333';
+  });
+});
+
+document
+.getElementById("nav-toggle")
+.addEventListener("click", function () {
+  this.classList.toggle("active");
+  document.getElementById("nav").classList.toggle("active");
+});
+
+function submitForm() {
+  const form = document.getElementById('contactForm');
+  const formData = new FormData(form);
+
+  // Make an AJAX request to submit the form data
+  const xhr = new XMLHttpRequest();
+  xhr.open('POST', 'http://localhost:4000/messages');
+  xhr.onload = function () {
+    if (xhr.status === 200) {
+      // Handle successful form submission
+      alert('Form submitted successfully!');
+      form.reset(); // Optionally, reset the form after successful submission
+    } else {
+      // Handle form submission error
+      alert('Form submission failed. Please try again later.');
+    }
+  };
+  xhr.onerror = function () {
+    // Handle network error
+    alert('Network error occurred. Please try again later.');
+  };
+  xhr.send(formData);
+}
 
   </script>    
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>

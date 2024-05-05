@@ -262,8 +262,20 @@ function submitForm() {
     // Handle network error
     alert('Network error occurred. Please try again later.');
   };
-  xhr.send(formData);
+
+  // Set request header
+  xhr.setRequestHeader('Content-Type', 'application/json');
+
+  // Convert FormData to JSON object
+  const formDataObject = {};
+  formData.forEach((value, key) => {
+    formDataObject[key] = value;
+  });
+
+  // Send JSON string in request body
+  xhr.send(JSON.stringify(formDataObject));
 }
+
 
   </script>    
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>

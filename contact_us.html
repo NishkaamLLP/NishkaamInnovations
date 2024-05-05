@@ -245,9 +245,18 @@ function submitForm() {
   const form = document.getElementById('contactForm');
   const formData = new FormData(form);
 
+  // Convert FormData to JSON object
+  const formDataObject = {};
+  formData.forEach((value, key) => {
+    formDataObject[key] = value;
+  });
+
   // Make an AJAX request to submit the form data
   const xhr = new XMLHttpRequest();
   xhr.open('POST', 'http://localhost:4000/messages');
+  xhr.setRequestHeader('Content-Type', 'application/json');
+  
+  // Set up event listeners for load and error events
   xhr.onload = function () {
     if (xhr.status === 200) {
       // Handle successful form submission
@@ -258,19 +267,11 @@ function submitForm() {
       alert('Form submission failed. Please try again later.');
     }
   };
+
   xhr.onerror = function () {
     // Handle network error
     alert('Network error occurred. Please try again later.');
   };
-
-  // Set request header
-  xhr.setRequestHeader('Content-Type', 'application/json');
-
-  // Convert FormData to JSON object
-  const formDataObject = {};
-  formData.forEach((value, key) => {
-    formDataObject[key] = value;
-  });
 
   // Send JSON string in request body
   xhr.send(JSON.stringify(formDataObject));
